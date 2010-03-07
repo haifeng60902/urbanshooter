@@ -1,7 +1,14 @@
 
+#include <Game.h>
+
 
 int main(int argc, char** argv)
 {
 
-	return 1;
+	Game * game = new Game();
+
+	game->init();
+	
+	return game->run();
+
 }
