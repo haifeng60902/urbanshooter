@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -60,7 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="osgd.lib osgDBd.lib osgGAd.lib osgUtild.lib osgTextd.lib osgFXd.lib osgViewerd.lib"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -114,6 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -132,7 +136,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="osg.lib osgDB.lib osgGA.lib osgUtil.lib osgText.lib osgFX.lib osgViewer.lib"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
@@ -170,6 +176,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath="..\src\render\Launcher.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Fichiers d&apos;en-tête"
