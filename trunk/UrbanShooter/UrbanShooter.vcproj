@@ -184,6 +184,18 @@
 				RelativePath="..\src\render\Launcher.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\render\Weapon.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\WeaponHandler.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\WeaponManager.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Fichiers d&apos;en-tête"
@@ -192,6 +204,22 @@
 			>
 			<File
 				RelativePath="..\src\render\Game.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Sniper.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Weapon.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\WeaponHandler.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\WeaponManager.h"
 				>
 			</File>
 		</Filter>

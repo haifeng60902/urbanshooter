@@ -3,6 +3,9 @@
 
 #include <osgViewer/Viewer>
 
+
+class WeaponManager;
+
 /** Entry point*/
 class Game
 {
@@ -17,6 +20,9 @@ public :
 	/** Initialize the scene */
 	bool init();
 
+	/** Loading data*/
+	bool loadDatas();
+
 	/**Run the game */
 	int run();
 
@@ -24,6 +30,9 @@ private:
 
 	/** renderer */
 	osg::ref_ptr<osgViewer::Viewer> _viewer;
+
+	
+	WeaponManager* _weaponManager;
 
 
 };
