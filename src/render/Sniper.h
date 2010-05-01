@@ -11,7 +11,7 @@ public:
 	Sniper() : Weapon(15, 5)
 	{}
 
-	~Sniper();
+	~Sniper(){};
 
 };
 

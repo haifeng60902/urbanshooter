@@ -12,7 +12,7 @@ class WeaponManager
 
 public:
 
-	WeaponManager(osgViewer::Viewer* v);
+	WeaponManager();
 	~WeaponManager();
 
 
@@ -20,9 +20,10 @@ public:
 
 	void setWeapon( Weapon * w) { _weapon = w; }
 
+	void Tire();
+
 private:
 
-	void setHandler(osgViewer::Viewer* v);
 
 	osg::ref_ptr< Weapon > _weapon;
 

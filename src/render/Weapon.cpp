@@ -25,10 +25,19 @@ unsigned int Weapon::GetNbBallesDansChageur()
 	return _nb_balles % _capacite_chargeur;
 }
 
+unsigned int Weapon::GetNbBalles()
+{
+	return _nb_balles;
+}
+
 
 void Weapon::Tire()
 {
 	_nb_balles--;
+	osg::notify(osg::ALWAYS) << "PAN !! " << std::endl; //play sound
+
+	osg::notify(osg::NOTICE) << "Reste " << GetNbBalles() << " dans " << GetNbChargeur() << " chargeurs" << std::endl;
+
 }
 
 

@@ -4,7 +4,7 @@
 #include <osgViewer/Viewer>
 
 
-class WeaponManager;
+class WeaponHandler;
 
 /** Entry point*/
 class Game
@@ -32,7 +32,7 @@ private:
 	osg::ref_ptr<osgViewer::Viewer> _viewer;
 
 	
-	WeaponManager* _weaponManager;
+	WeaponHandler* _weaponHandler;
 
 
 };

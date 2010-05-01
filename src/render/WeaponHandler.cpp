@@ -1,6 +1,25 @@
 #include <WeaponHandler.h>
 
+#include <WeaponManager.h>
+
 #include <osg/notify>
+
+#include <Sniper.h>
+
+
+WeaponHandler::WeaponHandler()
+{
+	_wm = new WeaponManager();
+
+	//DEBUG
+	_wm->setWeapon(new Sniper());
+}
+
+WeaponHandler::~WeaponHandler()
+{
+	delete _wm;
+	_wm = NULL;
+}
 
 
 bool WeaponHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &aa)
@@ -19,8 +38,9 @@ bool WeaponHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAda
         {
            //shoot
 			if(ea.getButtonMask() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
-				osg::notify(osg::ALWAYS) << "PAN !! " << std::endl; //play sound
-
+			{
+				_wm->Tire();
+			}	
             break;
         }
 

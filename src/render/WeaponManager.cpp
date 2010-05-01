@@ -2,19 +2,19 @@
 
 #include <WeaponHandler.h>
 
-WeaponManager::WeaponManager(osgViewer::Viewer* v)
+WeaponManager::WeaponManager()
 {
 	_weapon = NULL;
-	setHandler(v);
 }
 
 WeaponManager::~WeaponManager()
 {
 }
 
-void WeaponManager::setHandler(osgViewer::Viewer* v)
+
+void WeaponManager::Tire()
 {
-	if(v)
-		v->addEventHandler(new WeaponHandler());
-		
+	if(_weapon->GetNbBalles() > 0)
+		_weapon->Tire();
+
 }
