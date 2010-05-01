@@ -19,6 +19,9 @@ public:
 	//nombre de balles dans le chargeur en cours
 	unsigned int GetNbBallesDansChageur();
 
+	//nombre de balles
+	unsigned int GetNbBalles();
+
 	//décompte une balle
 	void Tire();
 

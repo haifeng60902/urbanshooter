@@ -4,14 +4,21 @@
 
 #include <osgGA/GUIEventHandler>
 
+class WeaponManager;
 
 
 class WeaponHandler : public osgGA::GUIEventHandler 
 {
 public:
 
+	WeaponHandler();
+	~WeaponHandler();
+
 	bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
 
+private:
+
+	WeaponManager* _wm;
 
 
 };
