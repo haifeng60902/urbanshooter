@@ -5,7 +5,7 @@
 
 #include <Weapon.h>
 
-
+class WeaponHandler;
 
 class WeaponManager
 {
@@ -22,8 +22,12 @@ public:
 
 	void Tire();
 
+
+	void setHandler(WeaponHandler* wm);
+
 private:
 
+	WeaponHandler* _wh;
 
 	osg::ref_ptr< Weapon > _weapon;
 

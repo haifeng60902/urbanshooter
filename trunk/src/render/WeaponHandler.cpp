@@ -4,21 +4,16 @@
 
 #include <osg/notify>
 
-#include <Sniper.h>
+#include <GameManager.h>
 
 
 WeaponHandler::WeaponHandler()
 {
-	_wm = new WeaponManager();
 
-	//DEBUG
-	_wm->setWeapon(new Sniper());
 }
 
 WeaponHandler::~WeaponHandler()
 {
-	delete _wm;
-	_wm = NULL;
 }
 
 
@@ -31,15 +26,18 @@ bool WeaponHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAda
 */
 
  //   if (ea.getHandled()) return false;
+	
 
     switch(ea.getEventType())
     {
-	case(osgGA::GUIEventAdapter::PUSH):
+	case(osgGA::GUIEventAdapter::RELEASE):
+	//case(osgGA::GUIEventAdapter::DOUBLECLICK):
         {
            //shoot
-			if(ea.getButtonMask() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
+		//	if(ea.getButtonMask() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 			{
-				_wm->Tire();
+				//if(osgGA::GUIEventAdapter::RELEASE == ea.getEventType())
+				GameManager::instance()->getWeaponManager()->Tire();
 			}	
             break;
         }

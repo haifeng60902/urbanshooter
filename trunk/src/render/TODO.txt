@@ -1,2 +1,15 @@
 
 Bug du clic rapide : double clic ?
+
+Ajouter lib de gestion sonore
+
+Hud : 
+display text ligne par ligne 
+(en gros un display avec un timer qui estompe/efface au bout de qques temps)
+(mais aussi un display fixe qui se met juste a jour)
+
+durée la meme pour tout le monde
+hud->stackmessage
+
+Qd le message du bas expire : translation des autres vers le bas.
+(nouveau txt a chaque stack element + un méthode qui calcule la descente)

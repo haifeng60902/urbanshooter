@@ -11,6 +11,12 @@ WeaponManager::~WeaponManager()
 {
 }
 
+void WeaponManager::setHandler(WeaponHandler* wh)
+{
+	_wh = wh;
+}
+
+
 
 void WeaponManager::Tire()
 {
