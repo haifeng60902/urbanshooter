@@ -181,7 +181,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\render\GameManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\render\Launcher.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\ProgressiveTransparencyCallback.cpp"
 				>
 			</File>
 			<File
@@ -204,6 +216,22 @@
 			>
 			<File
 				RelativePath="..\src\render\Game.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\GameManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\NodeCollector.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\ProgressiveTransparencyCallback.h"
 				>
 			</File>
 			<File
