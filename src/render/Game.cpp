@@ -52,9 +52,7 @@ bool Game::init()
 	return true;
 }
 
-#include <osg/Material>
 
-#include <NodeCollector.h>
 
 bool Game::loadDatas()
 {
@@ -65,36 +63,8 @@ bool Game::loadDatas()
 	
 	g->addChild(Hud::setUpCamera());
 
-	//node->setUpdateCallback(new ProgressiveTransparencyCallback(5.0,3.0));
-
-
-		osg::ref_ptr<osg::StateSet> stateset = node->getOrCreateStateSet();
-		stateset->setMode(GL_BLEND, osg::StateAttribute::ON | osg::StateAttribute::OVERRIDE );
-        stateset->setRenderingHint(osg::StateSet::TRANSPARENT_BIN);
-	//	stateset->setDataVariance(osg::Object::DYNAMIC);
-	//	stateset->setRenderBinDetails(11, "DepthSortedBin");
-
-
-		osg::Material* _material = dynamic_cast<osg::Material*>( stateset->getAttribute(osg::StateAttribute::MATERIAL) );
-
-		if(!_material)
-			_material = new osg::Material;
-
-		_material->setColorMode(osg::Material::AMBIENT);
-		/*_material->setAmbient(osg::Material::FRONT_AND_BACK, osg::Vec4(1, 1, 1, 1));
-		_material->setSpecular(osg::Material::FRONT_AND_BACK, osg::Vec4(1, 1, 1, 1));
-		_material->setShininess(osg::Material::FRONT_AND_BACK, 64.0f);*/
-		_material->setAlpha(osg::Material::FRONT_AND_BACK, 0.2);
-		stateset->setAttributeAndModes(_material, osg::StateAttribute::ON);
-
-        stateset->setMode(GL_LIGHTING,osg::StateAttribute::OFF);
-
-
-
-		//NodeCollector nc;
-		std::vector<osg::Geode*> geodes = NodeCollector::collect<osg::Geode>(g);
-
-
+	node->setUpdateCallback(new ProgressiveTransparencyCallback(5.0,3.0));
+	
 
 	_viewer->setSceneData( g );
 
