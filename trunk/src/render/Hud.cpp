@@ -25,6 +25,9 @@ Hud::~Hud()
 #include <osg/Camera>
 #include <osg/Geometry>
 
+
+#include <Hud/HudTextRoot.h>
+
 osg::Camera* Hud::setUpCamera()
 {
     // create a camera to set up the projection and model view matrices, and the subgraph to drawn in the HUD
@@ -61,9 +64,8 @@ osg::Camera* Hud::setUpCamera()
         stateset->setMode(GL_LIGHTING,osg::StateAttribute::OFF);
 
         osg::Vec3 position(10.0f,10.0f,0.0f); //from bottom left
-        osg::Vec3 delta(0.0f,-120.0f,0.0f);
 
-        {
+     /*   {
             osgText::Text* text = new  osgText::Text;
             geode->addDrawable( text );
 
@@ -74,6 +76,15 @@ osg::Camera* Hud::setUpCamera()
 
             //position += delta;
         }    
+*/
+
+		HudTest::HudTextRoot* htr = new HudTest::HudTextRoot();
+		camera->addChild(htr);
+		htr->addText(std::string("coucou lily :-)"));
+		htr->addText(std::string("coucou moi :-p"));
+		
+
+
 /*
 
         {
