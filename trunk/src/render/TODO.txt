@@ -13,3 +13,11 @@ hud->stackmessage
 
 Qd le message du bas expire : translation des autres vers le bas.
 (nouveau txt a chaque stack element + un méthode qui calcule la descente)
+
+
+
+Parametres d'affichage du HUD : 
+ * une classe (avec methode) virtuelle qui dessine le fond ( ou la couleur là ?)
+ * une classe de parametrage de la taille et ou couleurs ?
+     et le max de textes a l'écran (pour pas dépasser)
+     et le force-disparition qd ça dépasse ou attend qu'une place libere ou ignore

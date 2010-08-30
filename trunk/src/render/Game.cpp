@@ -14,6 +14,8 @@
 
 #include <ProgressiveTransparencyCallback.h>
 
+#include <MyHandler.h>
+
 
 Game::Game()
 {
@@ -35,6 +37,10 @@ bool Game::init()
 	//_viewer->setUpViewInWindow(50,50,800,600,0);
 
 	_viewer->addEventHandler(new osgViewer::StatsHandler());
+
+	//add debug handler
+	_viewer->addEventHandler(new MyHandler());
+
 
 	_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
 
