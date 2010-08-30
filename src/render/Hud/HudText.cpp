@@ -13,8 +13,9 @@ HudTest::HudText::HudText(int width, int height) :
 	//build text
 	_text = new osgText::Text;
 
+	//set text position and size
 	_text->setFont("fonts/arial.ttf");
-	_text->setPosition(osg::Vec3d(5. ,_height/2.-2 , 0.));
+	_text->setPosition(osg::Vec3d(10. ,_height/2.-2 , 0.));
 	_text->setCharacterSize(12);
 	_text->setText("empty");
 	
