@@ -81,7 +81,13 @@ osg::Camera* Hud::setUpCamera()
 		HudTest::HudTextRoot* htr = new HudTest::HudTextRoot();
 		camera->addChild(htr);
 		htr->addText(std::string("coucou lily :-)"));
+		htr->addText(std::string("coucou lily :-)"));
+		htr->addText(std::string("coucou chaton :-)"));
+		htr->addText(std::string("coucou lily :-)"));
+		htr->addText(std::string("coucou lily :-)"));
 		htr->addText(std::string("coucou moi :-p"));
+		htr->addText(std::string("1 :-p"));
+		htr->addText(std::string("2 :-p"));
 		
 
 
