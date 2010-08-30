@@ -40,5 +40,13 @@ void HudTest::HudManager::deleteInstance()
 
 void HudTest::HudManager::display(const std::string &text)
 {
+	//add a new item in the HudTextRoot
 	_hudTextRoot->addText(text);
+}
+
+
+void HudTest::HudManager::setUpHudOnCamera(osg::Camera* cam)
+{
+	if(cam)
+		cam->addChild(_hudTextRoot);
 }

@@ -10,6 +10,7 @@
 #include <Sniper.h>
 
 #include <Hud.h>
+#include <Hud/HudManager.h>
 
 #include <ProgressiveTransparencyCallback.h>
 
@@ -56,12 +57,26 @@ bool Game::init()
 
 bool Game::loadDatas()
 {
-	osg::Group* g= new osg::Group();
+	osg::Group* g = new osg::Group();
 
 	osg::ref_ptr< osg::Node> node = osgDB::readNodeFile("D:/Codage/OSG_2.8.2/sources/data/cessna.osg");
 	g->addChild(node);
 	
-	g->addChild(Hud::setUpCamera());
+	//create the HUD base
+	osg::Camera * cam = Hud::setUpCamera();
+	g->addChild(cam);
+
+	//Set Up the dynamic Hud
+	HudTest::HudManager::getInstance()->setUpHudOnCamera(cam);
+	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
+	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
+	HudTest::HudManager::getInstance()->display(std::string("coucou chaton :-)"));
+	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
+	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
+	HudTest::HudManager::getInstance()->display(std::string("coucou moi :-p"));
+	HudTest::HudManager::getInstance()->display(std::string("1 :-p"));
+	HudTest::HudManager::getInstance()->display(std::string("2 :-p"));
+
 
 	node->setUpdateCallback(new ProgressiveTransparencyCallback(5.0,3.0));
 	
