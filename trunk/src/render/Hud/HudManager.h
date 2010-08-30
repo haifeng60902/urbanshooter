@@ -8,7 +8,7 @@ namespace HudTest
 {
 
 	/** Manage the HUD 
-		based on a singleton
+	 * 	based on a singleton
 	*/
 	class HudManager
 	{
@@ -16,7 +16,7 @@ namespace HudTest
 	public:
 
 		/** get or create the instance 
-			@return valid instance of the HudManager
+		 * 	@return valid instance of the HudManager
 		*/
 		static HudManager * getInstance();
 
@@ -24,9 +24,14 @@ namespace HudTest
 		static void deleteInstance();
 
 		/** Display the text in the hud
-			@param[in] text text to display
+		 * 	@param[in] text text to display
 		*/
 		void display(const std::string & text);
+
+		/** SetUp the Hud on the camera
+		 * 	@param camera on which set the hud
+		*/
+		void setUpHudOnCamera(osg::Camera* cam);
 
 	private:
 		/** private constructor */
