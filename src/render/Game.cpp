@@ -41,7 +41,7 @@ bool Game::init()
 	//add debug handler
 	_viewer->addEventHandler(new MyHandler());
 
-
+	//default camera manipulator
 	_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
 
 
@@ -52,9 +52,6 @@ bool Game::init()
 	GameManager::instance()->getWeaponManager()->setWeapon(new Sniper());
 	GameManager::instance()->setView(_viewer);
 	
-
-
-//	_viewer->setCameraManipulator(new osgGA::DriveManipulator());
 
 	return true;
 }
@@ -85,7 +82,6 @@ bool Game::loadDatas()
 
 
 	node->setUpdateCallback(new ProgressiveTransparencyCallback(5.0,3.0));
-	
 
 	_viewer->setSceneData( g );
 

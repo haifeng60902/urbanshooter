@@ -231,6 +231,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\render\MyHandler.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\render\NodeCollector.h"
 				>
 			</File>
@@ -262,6 +266,34 @@
 			>
 			<File
 				RelativePath="..\src\render\TODO.txt"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Hud"
+			>
+			<File
+				RelativePath="..\src\render\Hud\HudManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudText.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudText.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudTextRoot.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudTextRoot.h"
 				>
 			</File>
 		</Filter>
