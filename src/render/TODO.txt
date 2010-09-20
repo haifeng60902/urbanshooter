@@ -21,3 +21,6 @@ Parametres d'affichage du HUD :
  * une classe de parametrage de la taille et ou couleurs ?
      et le max de textes a l'écran (pour pas dépasser)
      et le force-disparition qd ça dépasse ou attend qu'une place libere ou ignore
+
+Partage des instances des backgrounds des textes
+Méthode virtuelle ou operateur d'une classe interne, méthode de get/set associée
