@@ -1,0 +1,3 @@
+class HudManager
+!!!128258.cpp!!!	pushText(in text : string) : void
+getInstance()->addText(text);

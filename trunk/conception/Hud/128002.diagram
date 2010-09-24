@@ -1,0 +1,38 @@
+format 75
+
+classcanvas 128002 class_ref 128002 // HudManager
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 66.8964 68.9502 2000
+end
+classcanvas 128130 class_ref 128130 // DisplaySetting
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 301.933 101.934 2000
+end
+classcanvas 128258 class_ref 128258 // DisplayGeometry
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 574.473 115.789 2000
+end
+classcanvas 128642 class_ref 134786 // TransparencyCallback
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 407.841 307.734 2000
+end
+classcanvas 128770 class_ref 134914 // HudText
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 93.4705 296.749 2000
+end
+relationcanvas 128514 relation_ref 128130 // <unidirectional association>
+  from ref 128130 z 2001 to ref 128258
+  role_a_pos 474 120 3000 no_role_b
+  multiplicity_a_pos 558 144 3000 no_multiplicity_b
+end
+relationcanvas 128898 relation_ref 134658 // <unidirectional association>
+  from ref 128002 z 2001 stereotype "<<vector>>" xyz 98 250 3000 to ref 128770
+  role_a_pos 136 278 3000 no_role_b
+  multiplicity_a_pos 113 278 3000 no_multiplicity_b
+end
+relationcanvas 129026 relation_ref 134786 // <unidirectional association>
+  from ref 128002 z 2001 to ref 128130
+  role_a_pos 208 119 3000 no_role_b
+  multiplicity_a_pos 283 144 3000 no_multiplicity_b
+end
+end
