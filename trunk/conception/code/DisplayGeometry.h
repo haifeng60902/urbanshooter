@@ -3,8 +3,9 @@
 
 
 class DisplayGeometry {
-  public:
-    virtual  createBackground();
+	public:
+    //Devra créer la geometry de fond, sans la transparence, dans une geode. devra retourner une geode
+    virtual osg::Geode * createBackground();
 
 };
 #endif

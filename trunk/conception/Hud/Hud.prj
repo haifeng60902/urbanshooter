@@ -73,6 +73,7 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      comment "Definir le comportement : montant ou descendant ? on push en haut de la liste ou en bas ? ou les deux ???"
       attribute 128002 "_instance"
 	class_attribute private explicit_type "HudManager *"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -84,35 +85,37 @@ ${inlines}
       end
 
       operation 128002 "HudManager"
-	private explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+	preserve_cpp_body_indent private explicit_return_type ""
+	nparams 1
+	  param in name "mode" type class_ref 135298 // Mode
+	    defaultvalue "INSERT_AT_TOP"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+	cpp_def "${comment}${inline}${class}::${name}${(}${t0} ${p0}${)}${volatile}${throw} {
   ${body}}
 "
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
 
       operation 128130 "~HudManager"
-	protected explicit_return_type ""
+	preserve_cpp_body_indent protected explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
   ${body}}
 "
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
 
       operation 128258 "pushText"
-	class_operation public explicit_return_type "void"
+	class_operation preserve_cpp_body_indent public explicit_return_type "void"
 	nparams 1
 	  param in name "text" explicit_type "string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -120,14 +123,14 @@ ${inlines}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
 
       operation 128386 "addText"
-	public explicit_return_type ""
+	preserve_cpp_body_indent public explicit_return_type ""
 	nparams 1
 	  param in name "text" explicit_type "string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -135,9 +138,9 @@ ${inlines}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
 
@@ -158,11 +161,11 @@ ${inlines}
 "
 	    classrelation_ref 134914 // _displaySettings (<unidirectional association>)
 	  b parent class_ref 128130 // DisplaySetting
-	get_oper operation_ref 136194 // get__displaySettings
-	set_oper operation_ref 136322 // set__displaySettings
+	get_oper operation_ref 136194 // getDisplaySettings
+	set_oper operation_ref 136322 // setDisplaySettings
       end
 
-      operation 136194 "get__displaySettings"
+      operation 136194 "getDisplaySettings"
 	force_body_gen const cpp_inline public return_type class_ref 128130 // DisplaySetting
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw};
@@ -183,7 +186,7 @@ ${inlines}
 	get_of_relation classrelation_ref 134914 // _displaySettings (<unidirectional association>)
       end
 
-      operation 136322 "set__displaySettings"
+      operation 136322 "setDisplaySettings"
 	force_body_gen public explicit_return_type "void"
 	nparams 1
 	  param in name "value" type class_ref 128130 // DisplaySetting
@@ -203,6 +206,15 @@ ${inlines}
 	
 	idl_name_spec "set_${name}"
 	set_of_relation classrelation_ref 134914 // _displaySettings (<unidirectional association>)
+      end
+
+      classrelation 135042 // _mode (<unidirectional association>)
+	relation 134914 --->
+	  a role_name "_mode" multiplicity "1" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 135042 // _mode (<unidirectional association>)
+	  b parent class_ref 135298 // Mode
       end
     end
 
@@ -229,21 +241,6 @@ ${inlines}
 	idl_decl ""
       end
 
-      operation 128642 "setDisplayGeometry"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "dispGeom" type class_ref 128258 // DisplayGeometry
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
       attribute 128514 "_backgroundTransparency"
 	private explicit_type "float"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -261,6 +258,71 @@ ${inlines}
 "
 	    classrelation_ref 128258 // _displayGeometry (<unidirectional association>)
 	  b parent class_ref 128258 // DisplayGeometry
+	get_oper operation_ref 136450 // getDisplayGeometry
+	set_oper operation_ref 136578 // setDisplayGeometry
+      end
+
+      operation 136450 "getDisplayGeometry"
+	force_body_gen const cpp_inline public return_type class_ref 128258 // DisplayGeometry
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} * ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _displayGeometry;
+}
+"
+	cpp_name_spec "get_${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_relation classrelation_ref 128258 // _displayGeometry (<unidirectional association>)
+      end
+
+      operation 136578 "setDisplayGeometry"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" type class_ref 128258 // DisplayGeometry
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _displayGeometry = ${p0};
+}
+"
+	cpp_name_spec "set_${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_relation classrelation_ref 128258 // _displayGeometry (<unidirectional association>)
+      end
+
+      attribute 135682 "_charSize"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135810 "_font"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
 
@@ -277,17 +339,18 @@ ${inlines}
       explicit_switch_type ""
       
       operation 128514 "createBackground"
-	force_body_gen cpp_virtual public explicit_return_type ""
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type "osg::Geode *"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
-	
-	
-	
+	comment "Devra créer la geometry de fond, sans la transparence, dans une geode. devra retourner une geode"
       end
     end
 
@@ -385,7 +448,104 @@ ${inlines}
 	
 	
       end
+
+      attribute 135938 "_text"
+	private explicit_type "osg::Text *"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "//ref_ptr, an should be created in contructor"
+      end
     end
+
+    class 135042 "AnimateCallback"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Herite de osg::NodeCallback
+
+Fait descendre l'objet quand le dernier de la liste a été dégagé
+"
+      operation 136706 "AnimateCallback"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 136834 "~AnimateCallback"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 135298 "Mode"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}
+};
+"
+      java_decl "${comment}${@}${visibility}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      
+      attribute 135426 "INSERT_AT_TOP"
+	public type class_ref 135298 // Mode
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135554 "INSERT_AT_BOTTOM"
+	public type class_ref 135298 // Mode
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
   end
 
   deploymentview 128002 "v1"
@@ -512,5 +672,77 @@ ${namespace_end}"
 	class_ref 134786 // TransparencyCallback
       end
     end
+
+    artifact 135042 "Mode"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${definition}
+?>
+"
+      python_src "${comment}
+${import}
+${definition}"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 135298 // Mode
+      end
+    end
+
+    artifact 135170 "AnimateCallback"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 135042 // AnimateCallback
+      end
+    end
   end
+preserve_bodies
+
 end

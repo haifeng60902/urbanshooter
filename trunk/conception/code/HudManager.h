@@ -2,36 +2,47 @@
 #define _HUDMANAGER_H
 
 
+#include "Mode.h"
 #include <string>
 using namespace std;
+#include <vector>
+using namespace std;
 
+class HudText;
 class DisplaySetting;
 
+//Definir le comportement : montant ou descendant ? on push en haut de la liste ou en bas ? ou les deux ???
 class HudManager {
-  private:
+	private:
     static HudManager * _instance;
 
-    HudManager();
+    HudManager(Mode mode = INSERT_AT_TOP);
 
 
-  protected:
+	protected:
     ~HudManager();
 
 
-  public:
+	public:
     static void pushText(const string & text);
 
      addText(const string & text);
 
 
-  private:
+	private:
+    vector<HudText *> _hudTexts;
+
     DisplaySetting * _displaySettings;
 
 
-  public:
+	public:
     inline const DisplaySetting * get__displaySettings() const;
 
     void set__displaySettings(DisplaySetting * value);
+
+
+	private:
+    Mode _mode;
 
 };
 inline const DisplaySetting * HudManager::get__displaySettings() const {

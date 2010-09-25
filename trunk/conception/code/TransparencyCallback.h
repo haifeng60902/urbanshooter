@@ -4,15 +4,15 @@
 
 //TODO : Herite de osg::NodeCallback
 class TransparencyCallback {
-  public:
+	public:
     TransparencyCallback(const float & _beginTransparency);
 
 
-  protected:
+	protected:
     ~TransparencyCallback();
 
 
-  private:
+	private:
     float _defaultTransparency;
 
 };
