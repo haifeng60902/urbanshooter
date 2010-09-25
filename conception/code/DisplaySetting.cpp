@@ -2,6 +2,7 @@
 #include "DisplaySetting.h"
 #include "DisplayGeometry.h"
 
- DisplaySetting::setDisplayGeometry(DisplayGeometry * dispGeom) {
+void DisplaySetting::set__displayGeometry(DisplayGeometry * value) {
+  _displayGeometry = value;
 }
 
