@@ -273,6 +273,22 @@
 			Name="Hud"
 			>
 			<File
+				RelativePath="..\src\render\Hud\CallbackList.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackList.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackManager.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\render\Hud\HudManager.cpp"
 				>
 			</File>
@@ -294,6 +310,10 @@
 			</File>
 			<File
 				RelativePath="..\src\render\Hud\HudTextRoot.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\Macros.h"
 				>
 			</File>
 		</Filter>
