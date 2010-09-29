@@ -38,6 +38,7 @@ void HudTest::HudText::buildBackground()
 {
 
 	float depth = -0.1;
+	osg::Vec4 bgcolor(0.8f,0.8,1.0f,0.2f);
 
 	//build a simple surface : from 0,0 to width,height
 
@@ -57,7 +58,7 @@ void HudTest::HudText::buildBackground()
 	geom->setNormalBinding(osg::Geometry::BIND_OVERALL);
 
 	osg::Vec4Array* colors = new osg::Vec4Array;
-	colors->push_back(osg::Vec4(1.0f,1.0,0.8f,0.2f));
+	colors->push_back(bgcolor);
 	geom->setColorArray(colors);
 	geom->setColorBinding(osg::Geometry::BIND_OVERALL);
 

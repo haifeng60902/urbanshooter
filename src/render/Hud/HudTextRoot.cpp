@@ -15,7 +15,6 @@ HudTest::HudTextRoot::~HudTextRoot()
 
 }
 
-
 void HudTest::HudTextRoot::addText(const std::string &text)
 {
 
@@ -35,5 +34,6 @@ void HudTest::HudTextRoot::addText(const std::string &text)
 	addChild(pat);
 
 	_texts.push(ht);
+
 }
 
