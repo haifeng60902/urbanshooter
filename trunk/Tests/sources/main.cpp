@@ -13,7 +13,7 @@ int main()
 	runner.addTest( suite );
 
 	std::filebuf fb;
-	fb.open("test.xml",std::ios::out);
+	fb.open("UnitTestResults.xml",std::ios::out);
 	std::ostream ouput(&fb);
 
 	// Change the default outputter to a compiler error format outputter
