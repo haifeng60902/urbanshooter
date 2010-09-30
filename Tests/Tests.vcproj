@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;D:\Codage\cppunit\cppunit-1.12.1\include"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Tests\sources;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;D:\Codage\cppunit\cppunit-1.12.1\include"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Tests\sources;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -172,7 +172,7 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Fichiers sources"
+			Name="Unit Tests"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
@@ -180,18 +180,68 @@
 				RelativePath=".\sources\main.cpp"
 				>
 			</File>
+			<Filter
+				Name="CallabackManager"
+				>
+				<File
+					RelativePath=".\sources\CallbackManager\CallbackManagerTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\sources\CallbackManager\CallbackManagerTest.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
-			Name="Fichiers d&apos;en-tête"
+			Name="Sources UrbanShooter"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-		</Filter>
-		<Filter
-			Name="Fichiers de ressources"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
+			<File
+				RelativePath="..\src\render\Hud\CallbackList.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackList.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\CallbackManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudText.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudText.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudTextRoot.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\HudTextRoot.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\Hud\Macros.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
