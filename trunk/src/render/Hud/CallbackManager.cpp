@@ -1,23 +1,45 @@
 #include <Hud/CallbackManager.h>
 
+#include <Hud/CallbackList.h>
 
-/** @todo implementation */
+
 void CallbackManager::addNodeCallback(osg::Node *node, osg::NodeCallback *callback)
 {
+	if(!node || !callback)
+		return;
+
+	osg::ref_ptr<CallbackList> list = NULL;
+
 	//check if the node have a callback list
+	list = dynamic_cast<CallbackList*>( node->getUpdateCallback() );
+	
+	//if not, create it
+	if(!list.valid())
+	{
+		list = new CallbackList();
+		node->setUpdateCallback(list);
+	}
+
 
 	//if true, add the callback to the list
-
-	//else, add a new list as callback and push the new callback in the list
-
+	list->addCallback(callback);
+	
 }
 
-/** @todo implementation */
+
 void CallbackManager::removeNodeCallback(osg::Node *node, const std::string &name)
 {
+	if(!node || name.empty())
+		return;
+
+	osg::ref_ptr<CallbackList> list = NULL;
+
 	//check if the node have a callback list
+	list = dynamic_cast<CallbackList*>( node->getUpdateCallback() );
 
-	//if true, remove the callback from the list
+	if(list.valid())
+	{
+		list->removeCallback(name);
+	}
 
-	//else, nothing (or error)
 }
