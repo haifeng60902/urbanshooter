@@ -24,3 +24,8 @@ Parametres d'affichage du HUD :
 
 Partage des instances des backgrounds des textes
 Méthode virtuelle ou operateur d'une classe interne, méthode de get/set associée
+
+
+
+Remove only one instance or all(default) for one calback
+Insert in position/index

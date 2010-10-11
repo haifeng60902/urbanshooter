@@ -1,46 +1,79 @@
-#ifndef _CALLBACK_MANAGER_H_
-#define _CALLBACK_MANAGER_H_
+#ifndef _CALLBACK_MANAGER_TEST_H_
+#define _CALLBACK_MANAGER_TEST_H_
 
 #include <cppunit/extensions/HelperMacros.h>
 
 #include <osg/Group>
+#include <osg/NodeCallback>
+
+#include <Hud/Macros.h>
 
 class CallbackManagerTest : public CppUnit::TestFixture {
 
 	CPPUNIT_TEST_SUITE( CallbackManagerTest );
-	CPPUNIT_TEST( myTest );
+	CPPUNIT_TEST( add );
+	CPPUNIT_TEST( remove );
 	CPPUNIT_TEST_SUITE_END();
 
 private:
 
-	osg::ref_ptr<osg::Group> group;
+	osg::ref_ptr<osg::Group> _group;
 	osg::ref_ptr<osg::NodeCallback> _callback1;
 	osg::ref_ptr<osg::NodeCallback> _callback2;
 	
-	
-	//TODO : viewer pour appeler les callback ?	
-/*
-    _updateVisitor = new osgUtil::UpdateVisitor;
-	
-	_updateVisitor->reset();
-    _updateVisitor->setFrameStamp(getFrameStamp());
-    _updateVisitor->setTraversalNumber(getFrameStamp()->getFrameNumber());
 
-	_updateVisitor->getTraversalMode(); ??
-
-	node->accept(*_updateVisitor);
-*/
 
 public:
 	void setUp();
 	void tearDown();
 
-	void myTest();
+	void add();
+	void remove();
 
-
+	//not a test
+	void runCallbacks();
 
 };
 
 
-#endif //_CALLBACK_MANAGER_H_
+/** CallbackTest1 */
+class CallbackTest1 : public osg::NodeCallback
+{
+public :
+
+	METADATA(CallbackTest1);
+
+	CallbackTest1()
+	{};
+
+
+	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv)
+	{
+		//concat callback number in the node name
+		node->setName( node->getName() + "1" );
+		traverse(node,nv);
+	}
+};
+
+/** CallbackTest2 */
+class CallbackTest2 : public osg::NodeCallback
+{
+public :
+	
+	METADATA(CallbackTest2);
+
+	CallbackTest2()
+	{};
+
+
+	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv)
+	{
+		//concat callback number in the node name
+		node->setName( node->getName() + "2" );
+		traverse(node,nv);
+	}
+};
+
+
+#endif //_CALLBACK_MANAGER_TEST_H_
 

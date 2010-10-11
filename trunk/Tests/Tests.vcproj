@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Tests\sources;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;"
+				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="cppunitd.lib osgd.lib"
+				AdditionalDependencies="cppunitd.lib osgd.lib osgUtild.lib osgDBd.lib osgGAd.lib osgTextd.lib osgFXd.lib osgViewerd.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib;&quot;D:\Codage\cppunit\cppunit-1.12.1\lib&quot;"
 				GenerateDebugInformation="true"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Tests\sources;D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;"
+				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="cppunit.lib osg.lib"
+				AdditionalDependencies="cppunit.lib osg.lib osgUtil.lib osgDB.lib osgGA.lib osgText.lib osgFX.lib osgViewer.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib;&quot;D:\Codage\cppunit\cppunit-1.12.1\lib&quot;"
 				GenerateDebugInformation="true"
