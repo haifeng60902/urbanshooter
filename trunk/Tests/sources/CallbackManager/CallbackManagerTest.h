@@ -13,6 +13,8 @@ class CallbackManagerTest : public CppUnit::TestFixture {
 	CPPUNIT_TEST_SUITE( CallbackManagerTest );
 	CPPUNIT_TEST( add );
 	CPPUNIT_TEST( remove );
+	CPPUNIT_TEST( insert );
+	CPPUNIT_TEST( removeall );
 	CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -29,6 +31,8 @@ public:
 
 	void add();
 	void remove();
+	void insert();
+	void removeall();
 
 	//not a test
 	void runCallbacks();
