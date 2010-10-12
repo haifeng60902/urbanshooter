@@ -22,21 +22,35 @@ void CallbackList::operator()(osg::Node* node, osg::NodeVisitor* nv)
 }
 
 
-void CallbackList::addCallback( osg::NodeCallback * callback)
+void CallbackList::addCallback( osg::NodeCallback * callback, int index)
 {
-	_callbackList.push_back(std::make_pair(callback->className(), callback));
+	if( index < 0 || index >= (int)_callbackList.size() )
+	{
+		_callbackList.push_back(std::make_pair(callback->className(), callback));
+	}
+	else
+	{
+		//put iterator on next element before insertion
+		CallbackCallList::iterator it = _callbackList.begin() + index;
+		_callbackList.insert(it , std::make_pair(callback->className(), callback));
+	}
 }
 
-void CallbackList::removeCallback( const std::string & name)
+void CallbackList::removeCallback( const std::string & name, bool remove_all_instances)
 {
 
-	for(CallbackCallList::iterator it = _callbackList.begin(); it != _callbackList.end() ; ++it)
+	for(CallbackCallList::iterator it = _callbackList.begin(); it != _callbackList.end() ; )
 	{
 		if(it->first.compare(name) == 0)
 		{
-			_callbackList.erase(it);
-			return;
+			//no incrementation in this case
+			it = _callbackList.erase(it);
+			
+			if(!remove_all_instances)
+				return;
 		}
+		else
+			++it;
 	}
 
 }

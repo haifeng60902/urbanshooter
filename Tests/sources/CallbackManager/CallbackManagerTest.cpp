@@ -116,3 +116,60 @@ void CallbackManagerTest::remove()
 	CPPUNIT_ASSERT(_group->getName().compare("1211111112") == 0);
 
 }
+
+
+void CallbackManagerTest::insert()
+{
+	//add callback sequence :  1 2 1 1, then insert 2 : begin, middle, end
+
+	CallbackManager::addNodeCallback(_group, _callback1);
+	CallbackManager::addNodeCallback(_group, _callback2);
+	CallbackManager::addNodeCallback(_group, _callback1);
+	CallbackManager::addNodeCallback(_group, _callback1);
+
+	CallbackManager::addNodeCallback(_group, _callback2, 0); //begin
+	CallbackManager::addNodeCallback(_group, _callback2, 10); //end
+	CallbackManager::addNodeCallback(_group, _callback2, 4); //middle
+
+
+	// call the callbacks
+	runCallbacks(); //result "2121212"
+
+	//the callback have been run in the good order
+	CPPUNIT_ASSERT(_group->getName().compare("2121212") == 0);
+
+}
+
+
+void CallbackManagerTest::removeall()
+{
+	//121122
+	CallbackManager::addNodeCallback(_group, _callback1);
+	CallbackManager::addNodeCallback(_group, _callback2);
+	CallbackManager::addNodeCallback(_group, _callback1);
+	CallbackManager::addNodeCallback(_group, _callback1);
+	CallbackManager::addNodeCallback(_group, _callback2);
+	CallbackManager::addNodeCallback(_group, _callback2);
+
+	//remove first instance of callback 2
+	CallbackManager::removeNodeCallback(_group, "CallbackTest2"); 
+
+	// call the callbacks
+	runCallbacks(); //result "11122"
+
+	//the callback have been run in the good order
+	CPPUNIT_ASSERT(_group->getName().compare("11122") == 0);
+
+
+
+	//remove all instance of callback 1
+	CallbackManager::removeNodeCallback(_group, "CallbackTest1", true); 
+
+	// call the callbacks
+	runCallbacks(); //result "11122+22"
+
+	//the callback have been run in the good order
+	CPPUNIT_ASSERT(_group->getName().compare("1112222") == 0);
+
+
+}

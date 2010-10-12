@@ -3,7 +3,7 @@
 #include <Hud/CallbackList.h>
 
 
-void CallbackManager::addNodeCallback(osg::Node *node, osg::NodeCallback *callback)
+void CallbackManager::addNodeCallback(osg::Node *node, osg::NodeCallback *callback, int index)
 {
 	if(!node || !callback)
 		return;
@@ -22,12 +22,12 @@ void CallbackManager::addNodeCallback(osg::Node *node, osg::NodeCallback *callba
 
 
 	//if true, add the callback to the list
-	list->addCallback(callback);
+	list->addCallback(callback, index);
 	
 }
 
 
-void CallbackManager::removeNodeCallback(osg::Node *node, const std::string &name)
+void CallbackManager::removeNodeCallback(osg::Node *node, const std::string &name, bool all_instances)
 {
 	if(!node || name.empty())
 		return;
@@ -39,7 +39,7 @@ void CallbackManager::removeNodeCallback(osg::Node *node, const std::string &nam
 
 	if(list.valid())
 	{
-		list->removeCallback(name);
+		list->removeCallback(name, all_instances);
 	}
 
 }
