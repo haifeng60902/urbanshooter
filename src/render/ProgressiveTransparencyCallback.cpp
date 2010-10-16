@@ -5,19 +5,20 @@
 #include <osg/Notify>
 
 #include <Effects.h>
+#include <Hud/CallbackManager.h>
 
-ProgressiveTransparencyCallback::ProgressiveTransparencyCallback(double durationVisible , double duration_blur)
+ProgressiveTransparencyCallback::ProgressiveTransparencyCallback(double alphaFrom, double alphaTo, double durationVisible, double durationBlur) :
+	_alpha_from ( alphaFrom ),
+	_alpha_to ( alphaTo ),
+	_duration_visible( durationVisible ),
+	_duration_blur( durationBlur ),
+	_first_traverse ( false ),
+	_material ( NULL )
 {
-	_duration_visible = durationVisible;
-	_duration_blur = duration_blur;
-
-	_first_traverse = false;
-	_material = NULL;
 }
 
 ProgressiveTransparencyCallback::~ProgressiveTransparencyCallback()
 {
-
 }
 
 
@@ -43,19 +44,21 @@ void ProgressiveTransparencyCallback::operator ()(osg::Node *node, osg::NodeVisi
 		if(duration >= (_duration_visible + _duration_blur))
 		{
 			
-			Effects::setTransparency(node, 1.0);
+			Effects::setTransparency(node, _alpha_to);
 
-
-			//auto-destruction
+			//continue traverse
 			traverse(node,nv);
-			node->setUpdateCallback(NULL);
+		
+			//auto remove itself
+			CallbackManager::removeNodeCallback(node, "ProgressiveTransparencyCallback", true);
+			
 			return;
 
 		}
 		else if(duration >= _duration_visible)
 		{
 			//start blur
-			double transparency = 1 - ( duration - _duration_visible ) / _duration_blur;
+			double transparency = _alpha_from + ( (( duration - _duration_visible) * (_alpha_to - _alpha_from )) / ( _duration_blur ) );
 
 			Effects::setTransparency(node,transparency);
 			
@@ -65,10 +68,7 @@ void ProgressiveTransparencyCallback::operator ()(osg::Node *node, osg::NodeVisi
 
 	}
 
-	
-
-
-    
+	  
 	traverse(node,nv);
 	
 }
