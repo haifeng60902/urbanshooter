@@ -1,21 +1,21 @@
 #summary Where do I start, where do I go, and how
 
 
-UrbanShooter
+=UrbanShooter=
  * Hud
   * *Callback Manager*
-   * _Unit Test_
+   * *Unit Tests*
   * Hud implementation
+   * *Transparency Callback*
+   * Animation Callback
+   * Hud Texts management
 
 
 
-
-
+----
 
 == help : ==
 
-*done*
-
-to be done
-
-_in progress_ 
+ * *done*
+ * to be done
+ * _in progress_ 
