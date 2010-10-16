@@ -81,7 +81,7 @@ bool Game::loadDatas()
 	HudTest::HudManager::getInstance()->display(std::string("2 :-p"));
 
 
-	node->setUpdateCallback(new ProgressiveTransparencyCallback(5.0,3.0));
+	node->setUpdateCallback(new ProgressiveTransparencyCallback(1.0, 0.0, 2.0, 4.0));
 
 	_viewer->setSceneData( g );
 
