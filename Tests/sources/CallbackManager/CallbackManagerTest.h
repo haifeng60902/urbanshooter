@@ -34,9 +34,6 @@ public:
 	void insert();
 	void removeall();
 
-	//not a test
-	void runCallbacks();
-
 };
 
 

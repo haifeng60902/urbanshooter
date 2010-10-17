@@ -1,8 +1,9 @@
 #include <CallbackManager/CallbackManagerTest.h>
-#include <osgUtil/UpdateVisitor>
 
 #include <Hud/CallbackManager.h>
 #include <Hud/HudText.h>
+
+#include <Utility.h>
 
 // Registers the fixture into the 'registry'
 CPPUNIT_TEST_SUITE_REGISTRATION( CallbackManagerTest );
@@ -27,20 +28,6 @@ void CallbackManagerTest::tearDown()
 }
 
 
-void CallbackManagerTest::runCallbacks()
-{
-	//simulate a callback visitor from the update event of the viewer
-	osg::ref_ptr<osgUtil::UpdateVisitor> _updateVisitor = new osgUtil::UpdateVisitor;
-	
-	_updateVisitor->reset();
-	_updateVisitor->setTraversalMode(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN);
-
-	//traverse the graph
-	_group->accept(*_updateVisitor);
-
-}
-
-
 void CallbackManagerTest::add()
 {
 
@@ -49,7 +36,7 @@ void CallbackManagerTest::add()
 	CallbackManager::addNodeCallback(_group, _callback2);
 
 	// call the callbacks
-	runCallbacks();
+	Utility::runCallbacks(_group);
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("12") == 0);
@@ -59,7 +46,7 @@ void CallbackManagerTest::add()
 	CallbackManager::addNodeCallback(_group, _callback1);
 
 	// call the callbacks
-	runCallbacks();
+	Utility::runCallbacks(_group);
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("121211") == 0);
@@ -77,13 +64,13 @@ void CallbackManagerTest::remove()
 	CallbackManager::addNodeCallback(_group, _callback1);
 
 	// call the callbacks
-	runCallbacks(); //result "1211"
+	Utility::runCallbacks(_group); //result "1211"
 
 	//remove callback 2
 	CallbackManager::removeNodeCallback(_group, "CallbackTest2");
 
 	// call the callbacks
-	runCallbacks(); //result "1211+111"
+	Utility::runCallbacks(_group); //result "1211+111"
 
 
 	//the callback have been run in the good order
@@ -97,7 +84,7 @@ void CallbackManagerTest::remove()
 
 		
 	// call the callbacks
-	runCallbacks(); //result "1211111 + 112"
+	Utility::runCallbacks(_group); //result "1211111 + 112"
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("1211111112") == 0);
@@ -110,7 +97,7 @@ void CallbackManagerTest::remove()
 
 
 	// call the callbacks (no callbacks)
-	runCallbacks(); //result "1211111112"
+	Utility::runCallbacks(_group); //result "1211111112"
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("1211111112") == 0);
@@ -133,7 +120,7 @@ void CallbackManagerTest::insert()
 
 
 	// call the callbacks
-	runCallbacks(); //result "2121212"
+	Utility::runCallbacks(_group); //result "2121212"
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("2121212") == 0);
@@ -155,7 +142,7 @@ void CallbackManagerTest::removeall()
 	CallbackManager::removeNodeCallback(_group, "CallbackTest2"); 
 
 	// call the callbacks
-	runCallbacks(); //result "11122"
+	Utility::runCallbacks(_group); //result "11122"
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("11122") == 0);
@@ -166,7 +153,7 @@ void CallbackManagerTest::removeall()
 	CallbackManager::removeNodeCallback(_group, "CallbackTest1", true); 
 
 	// call the callbacks
-	runCallbacks(); //result "11122+22"
+	Utility::runCallbacks(_group); //result "11122+22"
 
 	//the callback have been run in the good order
 	CPPUNIT_ASSERT(_group->getName().compare("1112222") == 0);

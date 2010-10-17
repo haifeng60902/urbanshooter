@@ -1,6 +1,6 @@
 format 75
 "Hud"
-  revision 3
+  revision 5
   modified_by 2 "Vincent"
   cpp_root_dir "d:/Codage/urbanshooter/conception/code/"
 
@@ -239,6 +239,8 @@ ${inlines}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	get_oper operation_ref 143362 // getVisibleTime
+	set_oper operation_ref 143490 // setVisibleTime
       end
 
       attribute 128514 "_backgroundTransparency"
@@ -249,6 +251,8 @@ ${inlines}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	get_oper operation_ref 143618 // getBackgroundTransparency
+	set_oper operation_ref 143746 // setBackgroundTransparency
       end
 
       classrelation 128258 // _displayGeometry (<unidirectional association>)
@@ -313,6 +317,8 @@ ${inlines}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	get_oper operation_ref 143874 // getCharSize
+	set_oper operation_ref 144002 // setCharSize
       end
 
       attribute 135810 "_font"
@@ -323,6 +329,235 @@ ${inlines}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	get_oper operation_ref 144130 // getFont
+	set_oper operation_ref 144258 // setFont
+      end
+
+      attribute 142466 "_textColor"
+	private explicit_type "osg::Vec4"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 144386 // getTextColor
+	set_oper operation_ref 144514 // setTextColor
+      end
+
+      operation 143362 "getVisibleTime"
+	force_body_gen const cpp_inline public explicit_return_type "float"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _visibleTime;
+}
+"
+	cpp_name_spec "get${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128258 // _visibleTime
+      end
+
+      operation 143490 "setVisibleTime"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _visibleTime = ${p0};
+}
+"
+	cpp_name_spec "set${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128258 // _visibleTime
+      end
+
+      operation 143618 "getBackgroundTransparency"
+	force_body_gen const cpp_inline public explicit_return_type "float"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _backgroundTransparency;
+}
+"
+	cpp_name_spec "get${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128514 // _backgroundTransparency
+      end
+
+      operation 143746 "setBackgroundTransparency"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _backgroundTransparency = ${p0};
+}
+"
+	cpp_name_spec "set${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128514 // _backgroundTransparency
+      end
+
+      operation 143874 "getCharSize"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _charSize;
+}
+"
+	cpp_name_spec "get${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 135682 // _charSize
+      end
+
+      operation 144002 "setCharSize"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _charSize = ${p0};
+}
+"
+	cpp_name_spec "set${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 135682 // _charSize
+      end
+
+      operation 144130 "getFont"
+	force_body_gen const cpp_inline public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _font;
+}
+"
+	cpp_name_spec "get${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 135810 // _font
+      end
+
+      operation 144258 "setFont"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _font = ${p0};
+}
+"
+	cpp_name_spec "set${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 135810 // _font
+      end
+
+      operation 144386 "getTextColor"
+	force_body_gen const cpp_inline public explicit_return_type "osg::Vec4"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return _textColor;
+}
+"
+	cpp_name_spec "get${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 142466 // _textColor
+      end
+
+      operation 144514 "setTextColor"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "osg::Vec4"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  _textColor = ${p0};
+}
+"
+	cpp_name_spec "set${name}"
+	
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 142466 // _textColor
       end
     end
 
@@ -546,6 +781,53 @@ ${items}};
       end
     end
 
+    class 141954 "ListCallback"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Liste de callback a apeller dans l'ordre
+Permet de gerer une infinité de callback sur un node
+
+Herite de NodeCallback bien sur...
+
+membre : map de callback ? comment les referencer pour pouvoir les retirer ?  avec le className : un par type !
+Macro de getClassName() pour toutes les classes !"
+      operation 144642 "ListCallback"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144770 "~ListCallback"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
   end
 
   deploymentview 128002 "v1"
@@ -740,6 +1022,29 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 135042 // AnimateCallback
+      end
+    end
+
+    artifact 141698 "ListCallback"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 141954 // ListCallback
       end
     end
   end

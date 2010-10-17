@@ -39,9 +39,19 @@ public:
 
 private:
 
+	/**	Remove callbacks that are waiting for beeing removed */
+	void flushWaitingElementToRemove();
+
 	/** List of callbacks based on the className */
 	typedef std::vector< std::pair< std::string, osg::ref_ptr< osg::NodeCallback > > > CallbackCallList;
 	CallbackCallList _callbackList;
+
+	/** List of elements wating to be removed */
+	typedef std::vector< std::pair< std::string, bool > > RemoveEntityStack;
+	RemoveEntityStack _remStack;
+	
+	/** callback list is beeing run */
+	bool _running;
 
 };
 
