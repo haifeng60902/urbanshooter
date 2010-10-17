@@ -197,6 +197,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\render\TranslationCallback.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\render\Weapon.cpp"
 				>
 			</File>
@@ -244,6 +248,10 @@
 			</File>
 			<File
 				RelativePath="..\src\render\Sniper.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\TranslationCallback.h"
 				>
 			</File>
 			<File

@@ -180,6 +180,10 @@
 				RelativePath=".\sources\main.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\sources\Utility.h"
+				>
+			</File>
 			<Filter
 				Name="CallabackManager"
 				>
@@ -189,6 +193,18 @@
 				</File>
 				<File
 					RelativePath=".\sources\CallbackManager\CallbackManagerTest.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="TranslationCallbackTest"
+				>
+				<File
+					RelativePath=".\sources\TranslationCallback\TranslationCallbackTest.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\sources\TranslationCallback\TranslationCallbackTest.h"
 					>
 				</File>
 			</Filter>
@@ -240,6 +256,14 @@
 			</File>
 			<File
 				RelativePath="..\src\render\Hud\Macros.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\TranslationCallback.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\render\TranslationCallback.h"
 				>
 			</File>
 		</Filter>
