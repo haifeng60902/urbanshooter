@@ -1,6 +1,6 @@
-#include <WeaponManager.h>
+#include <render/WeaponManager.h>
 
-#include <WeaponHandler.h>
+#include <render/WeaponHandler.h>
 
 WeaponManager::WeaponManager()
 {

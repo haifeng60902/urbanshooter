@@ -1,6 +1,6 @@
-#include <Hud/CallbackManager.h>
+#include <animation/CallbackManager.h>
 
-#include <Hud/CallbackList.h>
+#include <animation/CallbackList.h>
 
 
 void CallbackManager::addNodeCallback(osg::Node *node, osg::NodeCallback *callback, int index)

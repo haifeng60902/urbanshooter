@@ -1,20 +1,20 @@
-#include <Game.h>
+#include <render/Game.h>
 
 #include <osgDB/readFile>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgGA/TrackballManipulator>
 
-#include <WeaponHandler.h>
+#include <render/WeaponHandler.h>
 
-#include <GameManager.h>
-#include <Sniper.h>
+#include <render/GameManager.h>
+#include <render/Sniper.h>
 
-#include <Hud.h>
-#include <Hud/HudManager.h>
+#include <render/hud.h>
+#include <hud/HudManager.h>
 
-#include <ProgressiveTransparencyCallback.h>
+#include <animation/ProgressiveTransparencyCallback.h>
 
-#include <MyHandler.h>
+#include <render/MyHandler.h>
 
 
 Game::Game()

@@ -3,7 +3,7 @@
 
 
 #include <osg/PositionAttitudeTransform>
-#include <Hud/HudText.h>
+#include <hud/HudText.h>
 #include <queue>
 
 namespace HudTest

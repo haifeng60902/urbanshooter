@@ -1,7 +1,7 @@
 #ifndef _GAME_MANAGER_H_
 #define _GAME_MANAGER_H_
 
-#include <WeaponManager.h>
+#include <render/WeaponManager.h>
 
 class GameManager
 {

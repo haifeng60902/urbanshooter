@@ -7,7 +7,7 @@
 #include <osg/Timer>
 #include <osg/Material>
 
-#include <Hud/Macros.h>
+#include <utility/Macros.h>
 
 /** This callback implements a simple way to turn a node in transparent */
 class ProgressiveTransparencyCallback : public osg::NodeCallback

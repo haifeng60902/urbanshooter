@@ -1,4 +1,4 @@
-#include <Weapon.h>
+#include <render/Weapon.h>
 
 #include <osgDB/ReadFile>
 

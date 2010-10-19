@@ -6,7 +6,7 @@
 #include <osg/Group>
 #include <osg/NodeCallback>
 
-#include <Hud/Macros.h>
+#include <utility/Macros.h>
 
 class CallbackManagerTest : public CppUnit::TestFixture {
 

@@ -1,4 +1,4 @@
-#include <Hud/HudManager.h>
+#include <hud/HudManager.h>
 
 //initialize the instance to null
 HudTest::HudManager * HudTest::HudManager::_instance = NULL;
