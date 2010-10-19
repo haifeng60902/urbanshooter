@@ -1,7 +1,7 @@
 #include <CallbackManager/CallbackManagerTest.h>
 
-#include <Hud/CallbackManager.h>
-#include <Hud/HudText.h>
+#include <animation/CallbackManager.h>
+#include <hud/HudText.h>
 
 #include <Utility.h>
 

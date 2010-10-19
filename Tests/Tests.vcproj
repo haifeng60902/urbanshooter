@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
+				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\render;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
+				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Tests\sources;D:\Codage\urbanshooter\src\;&quot;D:\Codage\cppunit\cppunit-1.12.1\include&quot;;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -215,55 +215,31 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\src\render\Hud\CallbackList.cpp"
+				RelativePath="..\src\animation\CallbackList.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\CallbackList.h"
+				RelativePath="..\src\animation\CallbackList.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\CallbackManager.cpp"
+				RelativePath="..\src\animation\CallbackManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\CallbackManager.h"
+				RelativePath="..\src\animation\CallbackManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\HudManager.cpp"
+				RelativePath="..\src\utility\Macros.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\HudManager.h"
+				RelativePath="..\src\animation\TranslationCallback.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\render\Hud\HudText.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\Hud\HudText.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\Hud\HudTextRoot.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\Hud\HudTextRoot.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\Hud\Macros.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\TranslationCallback.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\render\TranslationCallback.h"
+				RelativePath="..\src\animation\TranslationCallback.h"
 				>
 			</File>
 		</Filter>

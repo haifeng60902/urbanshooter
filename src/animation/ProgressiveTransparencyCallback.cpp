@@ -1,11 +1,11 @@
-#include <ProgressiveTransparencyCallback.h>
+#include <animation/ProgressiveTransparencyCallback.h>
 
 #include <osg/Node>
 #include <osg/StateSet>
 #include <osg/Notify>
 
-#include <Effects.h>
-#include <Hud/CallbackManager.h>
+#include <render/Effects.h>
+#include <animation/CallbackManager.h>
 
 ProgressiveTransparencyCallback::ProgressiveTransparencyCallback(double alphaFrom, double alphaTo, double durationVisible, double durationBlur) :
 	_alpha_from ( alphaFrom ),

@@ -1,7 +1,7 @@
 #ifndef _HUDMANAGER_H_
 #define _HUDMANAGER_H_
 
-#include <Hud/HudTextRoot.h>
+#include <hud/HudTextRoot.h>
 
 
 namespace HudTest

@@ -1,7 +1,7 @@
 #include <TranslationCallback/TranslationCallbackTest.h>
 
-#include <TranslationCallback.h>
-#include <Hud/CallbackManager.h>
+#include <animation/TranslationCallback.h>
+#include <animation/CallbackManager.h>
 #include <Utility.h>
 
 // Registers the fixture into the 'registry'

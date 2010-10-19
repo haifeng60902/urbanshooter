@@ -1,4 +1,4 @@
-#include <Hud/HudText.h>
+#include <hud/HudText.h>
 
 #include <osg/Geometry>
 

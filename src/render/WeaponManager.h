@@ -3,7 +3,7 @@
 
 #include <osgViewer/Viewer>
 
-#include <Weapon.h>
+#include <render/Weapon.h>
 
 class WeaponHandler;
 

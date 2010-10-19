@@ -1,7 +1,7 @@
 #ifndef _EFFECTS_H_
 #define _EFFECTS_H_
 
-#include <NodeCollector.h>
+#include <render/NodeCollector.h>
 #include <osg/Material>
 #include <osg/Geometry>
 #include <osg/Geode>

@@ -1,10 +1,10 @@
-#include <WeaponHandler.h>
+#include <render/WeaponHandler.h>
 
-#include <WeaponManager.h>
+#include <render/WeaponManager.h>
 
 #include <osg/notify>
 
-#include <GameManager.h>
+#include <render/GameManager.h>
 
 
 WeaponHandler::WeaponHandler()

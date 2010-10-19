@@ -1,4 +1,4 @@
-#include <Hud.h>
+#include <render/Hud.h>
 
 #include <osgText/Text>
 
@@ -13,7 +13,7 @@ Hud::~Hud()
 }
 
 
-#include <GameManager.h>
+#include <render/GameManager.h>
 
 
 #include <osg/Material>
@@ -26,7 +26,7 @@ Hud::~Hud()
 #include <osg/Geometry>
 
 
-#include <Hud/HudTextRoot.h>
+#include <hud/HudTextRoot.h>
 
 osg::Camera* Hud::setUpCamera()
 {
