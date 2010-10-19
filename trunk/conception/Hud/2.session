@@ -1,12 +1,10 @@
-window_sizes 1182 719 297 879 700 82
+window_sizes 1680 988 297 879 700 82
 diagrams
   active  classdiagram_ref 128002 // Hud
-    879 760 100 4 0 0
+    1377 872 100 4 0 0
 end
 show_stereotypes
 open
-  class_ref 128002 // HudManager
-  class_ref 128130 // DisplaySetting
   class_ref 128258 // DisplayGeometry
   deploymentview_ref 128002 // v1
   deploymentview_ref 128130 // classes
