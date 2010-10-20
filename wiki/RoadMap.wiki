@@ -7,7 +7,7 @@
    * *Unit Tests*
   * Hud implementation
    * *Transparency Callback*
-   * Animation Callback
+   * *Animation Callback*
    * Hud Texts management
 
 
