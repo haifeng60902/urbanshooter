@@ -56,6 +56,7 @@ osg::Camera* Hud::setUpCamera()
     {
 
         osg::Geode* geode = new osg::Geode();
+        camera->addChild(geode);
 
         std::string timesFont("fonts/arial.ttf");
 
@@ -177,7 +178,6 @@ osg::Camera* Hud::setUpCamera()
             geode->addDrawable(geom);
         }
 */
-        camera->addChild(geode);
     }
 
     return camera;

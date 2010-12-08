@@ -9,8 +9,8 @@
 #include <render/GameManager.h>
 #include <render/Sniper.h>
 
-#include <render/hud.h>
-#include <hud/HudManager.h>
+//#include <render/hud.h>
+#include <hud2/HudManager.h>
 
 #include <animation/ProgressiveTransparencyCallback.h>
 
@@ -66,19 +66,19 @@ bool Game::loadDatas()
 	g->addChild(node);
 	
 	//create the HUD base
-	osg::Camera * cam = Hud::setUpCamera();
-	g->addChild(cam);
+/*	osg::Camera * cam = Hud::setUpCamera();
+	g->addChild(cam);*/
 
 	//Set Up the dynamic Hud
-	HudTest::HudManager::getInstance()->setUpHudOnCamera(cam);
-	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
-	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
-	HudTest::HudManager::getInstance()->display(std::string("coucou chaton :-)"));
-	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
-	HudTest::HudManager::getInstance()->display(std::string("coucou lily :-)"));
-	HudTest::HudManager::getInstance()->display(std::string("coucou moi :-p"));
-	HudTest::HudManager::getInstance()->display(std::string("1 :-p"));
-	HudTest::HudManager::getInstance()->display(std::string("2 :-p"));
+	HudManager::getInstance()->setUpHudOnRootNode(g);
+	HudManager::pushText(std::string("coucou lily :-)"));
+	/*HudManager::pushText(std::string("coucou lily :-)"));
+	HudManager::pushText(std::string("coucou chaton :-)"));
+	HudManager::pushText(std::string("coucou lily :-)"));
+	HudManager::pushText(std::string("coucou lily :-)"));
+	HudManager::pushText(std::string("coucou moi :-p"));
+	HudManager::pushText(std::string("1 :-p"));
+	HudManager::pushText(std::string("2 :-p"));*/
 
 
 	node->setUpdateCallback(new ProgressiveTransparencyCallback(1.0, 0.0, 2.0, 4.0));
