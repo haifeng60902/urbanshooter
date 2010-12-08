@@ -3,7 +3,7 @@
 
 
 #include <osgGA/GUIEventHandler>
-
+#include <hud2/HudManager.h>
 
 class MyHandler : public osgGA::GUIEventHandler 
 {
@@ -20,13 +20,13 @@ public:
 
 				case(osgGA::GUIEventAdapter::KEY_F1):
 				{
-					HudTest::HudManager::getInstance()->display(std::string("F1"));
+					HudManager::getInstance()->pushText(std::string("F1"));
 					break;
 				}
 
 				case(osgGA::GUIEventAdapter::KEY_F2):
 				{
-					HudTest::HudManager::getInstance()->display(std::string("F2"));
+					HudManager::getInstance()->pushText(std::string("F2"));
 					break;
 				}
 
