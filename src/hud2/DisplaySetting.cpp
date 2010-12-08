@@ -6,12 +6,17 @@
 DisplaySetting::DisplaySetting()
 {
 	//default values
-	_displayGeometry = new DisplayGeometry();
 	_charSize = 10;
 	_font = "arial.ttf";
 	_textColor = osg::Vec4(0., 0., 0., 1.); //black
 	_visibleTime = 2.0; //visible 2 seconds
 	_backgroundTransparency = 0.5;
+
+	_width = 150.f;
+	_height = 40.f;
+
+	_displayGeometry = new DisplayGeometry(_width, _height);
+
 }
 
 DisplaySetting::~DisplaySetting()
@@ -44,3 +49,10 @@ void DisplaySetting::setTextColor(osg::Vec4 value) {
   _textColor = value;
 }
 
+void DisplaySetting::setWidth(float w){
+	_width = w;
+}
+
+void DisplaySetting::setHeight(float h){
+	_height = h;
+}

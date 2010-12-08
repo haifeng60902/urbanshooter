@@ -43,6 +43,12 @@ HudManager::~HudManager() {
 
 }
 
+
+void HudManager::setMode(Mode m){
+	_mode = m; 
+}
+
+
 void HudManager::setUpHudOnRootNode(osg::Group* root)
 {
 	// create a camera to set up the projection and model view matrices, and the subgraph to drawn in the HUD
@@ -66,6 +72,8 @@ void HudManager::setUpHudOnRootNode(osg::Group* root)
     camera->setAllowEventFocus(false);
 
 	camera->addChild(_group);
+
+	root->addChild(camera);
 }
 
 
@@ -89,8 +97,27 @@ void HudManager::addText(const std::string & text)
 
 	//TODO
 
+	osg::Vec3 position;
+
+	if(_mode == INSERT_AT_TOP)
+	{
+		//position is the (height + 5) * nb_txts along Y
+		position = osg::Vec3(0,(_displaySettings->getHeight() + 5) * _hudTexts.size(),0); //Y axis deplacement
+	}
+	else //INSERT_AT_BOTTOM
+	{
+		position = osg::Vec3(0,0,0);
+
+		//decal each old txt
+		osg::Vec3 decal = osg::Vec3(0,_displaySettings->getHeight() + 5,0);
+		for(unsigned int i = 0 ; i < _hudTexts.size() ; ++i)
+			_hudTexts.at(i).first->setPosition(_hudTexts.at(i).first->getPosition() + decal);
+	}
+
+
 	//1. create a new instance of text
 	HudText * ht = new HudText(text, _displaySettings);
+	ht->setPosition(ht->getPosition() + position);
 	
 	//2. add it to the end of the list and in the graph
 	_hudTexts.push_back(std::make_pair(ht, osg::Timer::instance()->tick()));

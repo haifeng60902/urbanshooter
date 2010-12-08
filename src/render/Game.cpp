@@ -9,10 +9,10 @@
 #include <render/GameManager.h>
 #include <render/Sniper.h>
 
-//#include <render/hud.h>
 #include <hud2/HudManager.h>
 
 #include <animation/ProgressiveTransparencyCallback.h>
+#include <animation/CallbackManager.h>
 
 #include <render/MyHandler.h>
 
@@ -65,12 +65,11 @@ bool Game::loadDatas()
 	osg::ref_ptr< osg::Node> node = osgDB::readNodeFile("D:/Codage/OSG_2.8.2/sources/data/cessna.osg");
 	g->addChild(node);
 	
-	//create the HUD base
-/*	osg::Camera * cam = Hud::setUpCamera();
-	g->addChild(cam);*/
 
 	//Set Up the dynamic Hud
 	HudManager::getInstance()->setUpHudOnRootNode(g);
+	HudManager::getInstance()->setMode(HudManager::INSERT_AT_BOTTOM);
+
 	HudManager::pushText(std::string("coucou lily :-)"));
 	/*HudManager::pushText(std::string("coucou lily :-)"));
 	HudManager::pushText(std::string("coucou chaton :-)"));
@@ -81,7 +80,7 @@ bool Game::loadDatas()
 	HudManager::pushText(std::string("2 :-p"));*/
 
 
-	node->setUpdateCallback(new ProgressiveTransparencyCallback(1.0, 0.0, 2.0, 4.0));
+	CallbackManager::addNodeCallback(node, new ProgressiveTransparencyCallback(1.0, 0.0, 2.0, 4.0));
 
 	_viewer->setSceneData( g );
 

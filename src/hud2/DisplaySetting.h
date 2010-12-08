@@ -56,11 +56,21 @@ public:
 	void setTextColor(osg::Vec4 value);
 
 
+	/** get Width */
+	inline const float getWidth() const;
+	/** set Width */
+	void setWidth(float w);
+	
+	/** get height */
+	inline const float getHeight() const;
+	/** set height */
+	void setHeight(float h);
+
 private:
 
 	int _charSize;
-	int _width;
-	int _height;
+	float _width;
+	float _height;
 	std::string _font;
 	osg::Vec4 _textColor;
 	float _visibleTime;
@@ -91,6 +101,14 @@ inline const std::string DisplaySetting::getFont() const {
 
 inline const osg::Vec4 DisplaySetting::getTextColor() const {
   return _textColor;
+}
+
+inline const float DisplaySetting::getWidth() const{
+	return _width;
+}
+
+inline const float DisplaySetting::getHeight() const{
+	return _height;
 }
 
 #endif
