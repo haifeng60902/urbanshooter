@@ -3,14 +3,20 @@
 #include <osg/Geometry>
 #include <osg/Geode>
 
+
+DisplayGeometry::DisplayGeometry(float w, float h) : 
+_width( w ),
+_height( h )
+{
+}
+
 osg::Geode * DisplayGeometry::createBackground() {
   
 	osg::Geode * geode = new osg::Geode();
 
 	float depth = -0.1f;
 	osg::Vec4 bgcolor(0.8f,0.8f,1.0f,1.0);
-	float _width = 150.f;
-	float _height = 40.f;
+
 
 	//build a simple surface : from 5,5 to width,height
 

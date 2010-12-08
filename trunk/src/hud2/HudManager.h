@@ -17,7 +17,7 @@ class HudManager {
 public :
 
 
-	/**callback pour gerer le pop des txts */
+	/** Callback managing the pop of the hudText when they have expired */
 	class ExpiryCallback : public osg::NodeCallback
 	{
 	public:
@@ -59,6 +59,7 @@ public :
 	static HudManager * getInstance();
 
 	void setUpHudOnRootNode(osg::Group* root);
+	void setMode(Mode m);
 
 	/** Add a text 
 	 *	to insert a text call pushText()
