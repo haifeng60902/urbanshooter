@@ -3,8 +3,11 @@
 
 #include <string>
 #include <deque>
+#include <queue>
 #include <osg/Timer>
 #include <osg/Group>
+
+#include <OpenThreads/mutex>
 
 #include <utility/Macros.h>
 
@@ -18,17 +21,17 @@ public :
 
 
 	/** Callback managing the pop of the hudText when they have expired */
-	class ExpiryCallback : public osg::NodeCallback
+	class TextsUpdateCallback : public osg::NodeCallback
 	{
 	public:
-		METADATA(ExpiryCallback);
+		METADATA(TextsUpdateCallback);
 
-		ExpiryCallback(HudManager * manager) : _manager( manager ) {}
+		TextsUpdateCallback(HudManager * manager) : _manager( manager ) {}
 
 		void operator()(osg::Node * node, osg::NodeVisitor * nv);
 
 	protected:
-		~ExpiryCallback(){};
+		~TextsUpdateCallback(){};
 
 	private:
 
@@ -41,6 +44,12 @@ public :
 		INSERT_AT_TOP,
 		INSERT_AT_BOTTOM
 	};
+
+
+
+	/** stack of orders of add, to be done in the updateCallback */
+	typedef std::queue< std::string > TextStack;
+
 
 	/** list of instance of HudTexts
 	 *	First is the instance, second is the creation time
@@ -61,11 +70,6 @@ public :
 	void setUpHudOnRootNode(osg::Group* root);
 	void setMode(Mode m);
 
-	/** Add a text 
-	 *	to insert a text call pushText()
-	 */
-	void addText(const std::string & text);
-
 	/** Get the display Settings */
     inline DisplaySetting * getDisplaySettings();
 
@@ -78,8 +82,7 @@ public :
 	/** get the texts list */
 	HudTexts * getHudTexts(){ return &_hudTexts; }
 
-	/** remove an expired hudText */
-	void removeText(HudText * hudText);
+
 
 protected:
 
@@ -96,6 +99,21 @@ private:
 	/** singleton instance */
 	static HudManager * _instance;
 
+	/** Insert the text into waiting list 
+	 *	Warning : To insert a text call pushText()
+	*/
+	void pushTextInList(const std::string & text);
+
+
+	/** Add a text 
+	 */
+	void addText(const std::string & text);
+
+	/** remove an expired hudText */
+	void removeText(HudText * hudText);
+
+
+
 	/** Texts list 
 	 *	Pair : instance, expire time
 	 */
@@ -110,6 +128,11 @@ private:
 	/** Group to attach the texts */
 	osg::ref_ptr< osg::Group > _group;
 
+	/** stack of texts to add */
+	TextStack _textToAddStack;
+
+	/** mutex of the textStack */
+	OpenThreads::Mutex _TestToAddStackMutex;
 };
 
 inline DisplaySetting * HudManager::getDisplaySettings() {
