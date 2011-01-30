@@ -30,6 +30,19 @@ public:
 					break;
 				}
 
+				case(osgGA::GUIEventAdapter::KEY_F3):
+				{
+					HudManager::getInstance()->pushText(std::string("F3_1"));
+					HudManager::getInstance()->pushText(std::string("F3_2"));
+					break;
+				}
+
+				case(osgGA::GUIEventAdapter::KEY_F4):
+				{
+					HudManager::getInstance()->pushText(std::string("F4"));
+					break;
+				}
+
 			default:
 				break;
 

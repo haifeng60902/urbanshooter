@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="osgd.lib osgDBd.lib osgGAd.lib osgUtild.lib osgTextd.lib osgFXd.lib osgViewerd.lib"
+				AdditionalDependencies="OpenThreadsd.lib osgd.lib osgDBd.lib osgGAd.lib osgUtild.lib osgTextd.lib osgFXd.lib osgViewerd.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
 				GenerateDebugInformation="true"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="osg.lib osgDB.lib osgGA.lib osgUtil.lib osgText.lib osgFX.lib osgViewer.lib"
+				AdditionalDependencies="OpenThreads.lib osg.lib osgDB.lib osgGA.lib osgUtil.lib osgText.lib osgFX.lib osgViewer.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
 				GenerateDebugInformation="true"
@@ -209,20 +209,6 @@
 			<File
 				RelativePath="..\src\hud2\HudText.cpp"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\hud2\HudText.h"

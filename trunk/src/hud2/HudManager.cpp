@@ -5,6 +5,8 @@
 
 #include <osg/Timer>
 
+#include <OpenThreads/ScopedLock>
+
 HudManager * HudManager::_instance = NULL;
 
 void HudManager::deleteInstance()
@@ -25,19 +27,21 @@ HudManager * HudManager::getInstance()
 
 HudManager::HudManager(Mode mode) {
 
-	//TODO : use mode
 	//init values
 	_displaySettings = new DisplaySetting();
 	_group = new osg::Group;
 
 	//set the callback on the texts root node
-	_group->setUpdateCallback(new ExpiryCallback(this));
+	_group->setUpdateCallback(new TextsUpdateCallback(this));
 }
 
 HudManager::~HudManager() {
 	
 	_hudTexts.clear();
 	
+	while(!_textToAddStack.empty())
+		_textToAddStack.pop();
+
 	delete _displaySettings;
 	_displaySettings = NULL;
 
@@ -89,26 +93,40 @@ void HudManager::setDisplaySettings(DisplaySetting * value) {
 
 void HudManager::pushText(const std::string & text)
 {  
-	getInstance()->addText(text);
+	//insert the text into a waiting list
+	getInstance()->pushTextInList(text);
+}
+
+
+void HudManager::pushTextInList(const std::string & text)
+{
+	//lock the stack and push the message
+	OpenThreads::ScopedLock<OpenThreads::Mutex> mylock(_TestToAddStackMutex);
+	_textToAddStack.push(text);
+
 }
 
 void HudManager::addText(const std::string & text) 
 {
 
-	//TODO
-
+	//position of the new hudtext
 	osg::Vec3 position;
 
 	if(_mode == INSERT_AT_TOP)
 	{
-		//position is the (height + 5) * nb_txts along Y
-		position = osg::Vec3(0,(_displaySettings->getHeight() + 5) * _hudTexts.size(),0); //Y axis deplacement
+		//position is the (height + 5) + last text position along Y
+		osg::Vec3 lastPosition;
+		if(_hudTexts.empty())
+			position = osg::Vec3(0,0,0); //Y axis deplacement
+		else
+			position = osg::Vec3(0,(_displaySettings->getHeight() + 5) + _hudTexts.back().first->getPosition().y() ,0); //Y axis deplacement
+
 	}
 	else //INSERT_AT_BOTTOM
 	{
 		position = osg::Vec3(0,0,0);
 
-		//decal each old txt
+		//decal each old txt to the top
 		osg::Vec3 decal = osg::Vec3(0,_displaySettings->getHeight() + 5,0);
 		for(unsigned int i = 0 ; i < _hudTexts.size() ; ++i)
 			_hudTexts.at(i).first->setPosition(_hudTexts.at(i).first->getPosition() + decal);
@@ -132,39 +150,57 @@ void HudManager::addText(const std::string & text)
 
 			//all callback will be removed by themselves
 
-
-	//remove from the list (done by expirycallback) and from the graph (in this order, graph is ref_counted)
-
-
 }
 
 
 void HudManager::removeText(HudText * hudText)
 {
 	_group->removeChild(hudText);
+	
+	//remove it from the list
+	_hudTexts.pop_front();
+
 }
 
 
-void HudManager::ExpiryCallback::operator ()(osg::Node *node, osg::NodeVisitor *nv)
+void HudManager::TextsUpdateCallback::operator ()(osg::Node *node, osg::NodeVisitor *nv)
 {
 
-	//test if the head element is ready to be removed. it true, ask for remove it
+	//test if the head elements are ready to be removed. if true, ask for remove them
 	HudTexts * texts = _manager->getHudTexts();
 
+	//get the timer only once, it can make a little time difference, but the optimization is
+	//better than the precision here
 	osg::Timer_t actual = osg::Timer::instance()->tick();
 
 	if(texts->size() > 0)
 	{
+		bool stopRemoving = false;
 
-		//compare actual with text begin time + duration
-		float duration = osg::Timer::instance()->delta_s(texts->front().second, actual);
-		
-		if(duration >= _manager->getDisplaySettings()->getVisibleTime())
+		while(!stopRemoving && texts->size() > 0)
 		{
-			_manager->removeText(texts->front().first);
-			//remove it from the list
-			texts->pop_front();
+			//compare actual with text begin time + duration
+			float duration = osg::Timer::instance()->delta_s(texts->front().second, actual);
+			
+			if(duration >= _manager->getDisplaySettings()->getVisibleTime())
+				_manager->removeText(texts->front().first);
+			else
+				stopRemoving = true;
 		}
+	}
+
+
+	//Now add texts
+	{
+		OpenThreads::ScopedLock<OpenThreads::Mutex> mylock(_manager->_TestToAddStackMutex);
+
+		while(!_manager->_textToAddStack.empty())
+		{
+			_manager->addText(_manager->_textToAddStack.front());
+			_manager->_textToAddStack.pop();
+		}
+
+
 	}
 
 	traverse(node,nv);
