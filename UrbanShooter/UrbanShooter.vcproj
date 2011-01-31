@@ -172,46 +172,46 @@
 	</References>
 	<Files>
 		<Filter
-			Name="hud2"
+			Name="hud"
 			>
 			<File
-				RelativePath="..\src\hud2\DisplayGeometry.cpp"
+				RelativePath="..\src\hud\DisplayGeometry.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\DisplayGeometry.h"
+				RelativePath="..\src\hud\DisplayGeometry.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\DisplaySetting.cpp"
+				RelativePath="..\src\hud\DisplaySetting.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\DisplaySetting.h"
+				RelativePath="..\src\hud\DisplaySetting.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\ExpireCallback.cpp"
+				RelativePath="..\src\hud\ExpireCallback.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\ExpireCallback.h"
+				RelativePath="..\src\hud\ExpireCallback.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\HudManager.cpp"
+				RelativePath="..\src\hud\HudManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\HudManager.h"
+				RelativePath="..\src\hud\HudManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\HudText.cpp"
+				RelativePath="..\src\hud\HudText.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud2\HudText.h"
+				RelativePath="..\src\hud\HudText.h"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"

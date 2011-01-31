@@ -9,7 +9,7 @@
 #include <render/GameManager.h>
 #include <render/Sniper.h>
 
-#include <hud2/HudManager.h>
+#include <hud/HudManager.h>
 
 #include <animation/ProgressiveTransparencyCallback.h>
 #include <animation/CallbackManager.h>

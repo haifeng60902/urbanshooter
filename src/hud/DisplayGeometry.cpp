@@ -1,4 +1,4 @@
-#include <hud2/DisplayGeometry.h>
+#include <hud/DisplayGeometry.h>
 
 #include <osg/Geometry>
 #include <osg/Geode>
