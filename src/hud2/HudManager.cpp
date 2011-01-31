@@ -49,6 +49,10 @@ HudManager::~HudManager() {
 
 
 void HudManager::setMode(Mode m){
+	HudManager::getInstance()->setInsertMode(m); 
+}
+
+void HudManager::setInsertMode(Mode m){
 	_mode = m; 
 }
 

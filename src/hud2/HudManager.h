@@ -61,6 +61,9 @@ public :
 	/** Insert a new text */
 	static void pushText(const std::string & text);
 
+	/** Set the mode */
+	static void setMode(Mode m);
+
 	/** Delete the instance */
 	static void deleteInstance();
 
@@ -68,7 +71,6 @@ public :
 	static HudManager * getInstance();
 
 	void setUpHudOnRootNode(osg::Group* root);
-	void setMode(Mode m);
 
 	/** Get the display Settings */
     inline DisplaySetting * getDisplaySettings();
@@ -104,6 +106,8 @@ private:
 	*/
 	void pushTextInList(const std::string & text);
 
+	/** Set the mode */
+	void setInsertMode(Mode m);
 
 	/** Add a text 
 	 */

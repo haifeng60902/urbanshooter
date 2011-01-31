@@ -20,26 +20,26 @@ public:
 
 				case(osgGA::GUIEventAdapter::KEY_F1):
 				{
-					HudManager::getInstance()->pushText(std::string("F1"));
+					HudManager::pushText(std::string("F1"));
 					break;
 				}
 
 				case(osgGA::GUIEventAdapter::KEY_F2):
 				{
-					HudManager::getInstance()->pushText(std::string("F2"));
+					HudManager::pushText(std::string("F2"));
 					break;
 				}
 
 				case(osgGA::GUIEventAdapter::KEY_F3):
 				{
-					HudManager::getInstance()->pushText(std::string("F3_1"));
-					HudManager::getInstance()->pushText(std::string("F3_2"));
+					HudManager::pushText(std::string("F3_1"));
+					HudManager::pushText(std::string("F3_2"));
 					break;
 				}
 
 				case(osgGA::GUIEventAdapter::KEY_F4):
 				{
-					HudManager::getInstance()->pushText(std::string("F4"));
+					HudManager::pushText(std::string("F4"));
 					break;
 				}
 
