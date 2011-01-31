@@ -3,7 +3,7 @@
 
 #include <osg/NodeCallback>
 #include <utility/Macros.h>
-#include <hud2/HudManager.h>
+#include <hud/HudManager.h>
 
 class ExpireCallback : public osg::NodeCallback
 {

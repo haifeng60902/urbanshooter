@@ -3,7 +3,7 @@
 
 
 #include <osgGA/GUIEventHandler>
-#include <hud2/HudManager.h>
+#include <hud/HudManager.h>
 
 class MyHandler : public osgGA::GUIEventHandler 
 {

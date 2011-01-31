@@ -1,7 +1,7 @@
 
-#include <hud2/HudManager.h>
-#include <hud2/HudText.h>
-#include <hud2/DisplaySetting.h>
+#include <hud/HudManager.h>
+#include <hud/HudText.h>
+#include <hud/DisplaySetting.h>
 
 #include <osg/Timer>
 
