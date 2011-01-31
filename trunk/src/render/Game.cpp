@@ -33,8 +33,8 @@ Game::~Game()
 bool Game::init()
 {
 	_viewer = new osgViewer::Viewer();
-	_viewer->setUpViewOnSingleScreen(1);
-	//_viewer->setUpViewInWindow(50,50,800,600,0);
+	//_viewer->setUpViewOnSingleScreen(0);
+	_viewer->setUpViewInWindow(50,50,800,600,0);
 
 	_viewer->addEventHandler(new osgViewer::StatsHandler());
 
@@ -68,10 +68,10 @@ bool Game::loadDatas()
 
 	//Set Up the dynamic Hud
 	HudManager::getInstance()->setUpHudOnRootNode(g);
-	//HudManager::getInstance()->setMode(HudManager::INSERT_AT_TOP);
-	HudManager::getInstance()->setMode(HudManager::INSERT_AT_BOTTOM);
+	//HudManager::setMode(HudManager::INSERT_AT_TOP);
+	HudManager::setMode(HudManager::INSERT_AT_BOTTOM);
 
-	HudManager::pushText(std::string("coucou lily :-)"));
+	//HudManager::pushText(std::string("coucou lily :-)"));
 	/*HudManager::pushText(std::string("coucou lily :-)"));
 	HudManager::pushText(std::string("coucou chaton :-)"));
 	HudManager::pushText(std::string("coucou lily :-)"));
