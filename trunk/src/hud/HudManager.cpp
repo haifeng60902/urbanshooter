@@ -25,11 +25,14 @@ HudManager * HudManager::getInstance()
 }
 
 
-HudManager::HudManager(Mode mode) {
+HudManager::HudManager() {
 
 	//init values
 	_displaySettings = new DisplaySetting();
 	_group = new osg::Group;
+
+	setInsertMode(INSERT_AT_BOTTOM);
+	
 
 	//set the callback on the texts root node
 	_group->setUpdateCallback(new TextsUpdateCallback(this));
@@ -47,13 +50,20 @@ HudManager::~HudManager() {
 
 }
 
-
-void HudManager::setMode(Mode m){
-	HudManager::getInstance()->setInsertMode(m); 
+void HudManager::setAnimationMode(AnimationMode m){
+	HudManager::getInstance()->setAnimMode(m);
 }
 
-void HudManager::setInsertMode(Mode m){
-	_mode = m; 
+void HudManager::setAnimMode(AnimationMode m){
+	_animMode = m;
+}
+
+void HudManager::setInsertMode(InsertMode m){
+	HudManager::getInstance()->setInsMode(m); 
+}
+
+void HudManager::setInsMode(InsertMode m){
+	_insertMode = m; 
 }
 
 
@@ -116,7 +126,7 @@ void HudManager::addText(const std::string & text)
 	//position of the new hudtext
 	osg::Vec3 position;
 
-	if(_mode == INSERT_AT_TOP)
+	if(_insertMode == INSERT_AT_TOP)
 	{
 		//position is the (height + 5) + last text position along Y
 		osg::Vec3 lastPosition;
@@ -145,13 +155,19 @@ void HudManager::addText(const std::string & text)
 	_hudTexts.push_back(std::make_pair(ht, osg::Timer::instance()->tick()));
 	_group->addChild(ht);
 
+
+	if(_animMode == TRANSLATION || _animMode == TRANSLATION_AND_TRANSPARENCY)
+	{
 			//3. set the transparency callback on it (0 to 1)
 				//careful with the bg transparency
+	}
 
+	if(_animMode == TRANSPARENCY || _animMode == TRANSLATION_AND_TRANSPARENCY)
+	{
 			//4. set the transparency callbcak on the one which will be removed (1 to 0)
 				//careful with the bg transparency
 			//5. set animation callback on each one
-
+	}
 			//all callback will be removed by themselves
 
 }
@@ -164,6 +180,7 @@ void HudManager::removeText(HudText * hudText)
 	//remove it from the list
 	_hudTexts.pop_front();
 
+	//TODO : callback of animation should be removed too
 }
 
 
