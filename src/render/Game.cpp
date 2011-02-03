@@ -68,8 +68,10 @@ bool Game::loadDatas()
 
 	//Set Up the dynamic Hud
 	HudManager::getInstance()->setUpHudOnRootNode(g);
-	//HudManager::setMode(HudManager::INSERT_AT_TOP);
-	HudManager::setMode(HudManager::INSERT_AT_BOTTOM);
+
+
+	//HudManager::setInsertMode(HudManager::INSERT_AT_TOP);
+	HudManager::setInsertMode(HudManager::INSERT_AT_BOTTOM);
 
 	//HudManager::pushText(std::string("coucou lily :-)"));
 	/*HudManager::pushText(std::string("coucou lily :-)"));

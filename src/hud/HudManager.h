@@ -40,11 +40,19 @@ public :
 
 
 	/** Insertion mode */
-	enum Mode {
+	enum InsertMode {
 		INSERT_AT_TOP,
 		INSERT_AT_BOTTOM
 	};
 
+
+	/** Animation mode */
+	enum AnimationMode {
+		NO_ANIM,
+		TRANSLATION,
+		TRANSPARENCY,
+		TRANSLATION_AND_TRANSPARENCY
+	};
 
 
 	/** stack of orders of add, to be done in the updateCallback */
@@ -62,7 +70,10 @@ public :
 	static void pushText(const std::string & text);
 
 	/** Set the mode */
-	static void setMode(Mode m);
+	static void setInsertMode(InsertMode m);
+
+	/** Set the animation mode */
+	static void setAnimationMode(AnimationMode m);
 
 	/** Delete the instance */
 	static void deleteInstance();
@@ -96,7 +107,7 @@ private:
 
 	
 	/** Constructor */
-	HudManager(Mode mode = INSERT_AT_TOP);
+	HudManager();
 
 	/** singleton instance */
 	static HudManager * _instance;
@@ -107,7 +118,11 @@ private:
 	void pushTextInList(const std::string & text);
 
 	/** Set the mode */
-	void setInsertMode(Mode m);
+	void setInsMode(InsertMode m);
+
+	/** Set the animation mode */
+	void setAnimMode(AnimationMode m);
+
 
 	/** Add a text 
 	 */
@@ -127,7 +142,10 @@ private:
     DisplaySetting * _displaySettings;
 
 	/** insertion mode */
-    Mode _mode;
+    InsertMode _insertMode;
+
+	/** Animation mode*/
+    AnimationMode _animMode;
 
 	/** Group to attach the texts */
 	osg::ref_ptr< osg::Group > _group;
