@@ -191,14 +191,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\hud\ExpireCallback.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\hud\ExpireCallback.h"
-				>
-			</File>
-			<File
 				RelativePath="..\src\hud\HudManager.cpp"
 				>
 			</File>
