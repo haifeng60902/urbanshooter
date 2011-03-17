@@ -158,12 +158,14 @@ void HudManager::addText(const std::string & text)
 
 	if(_animMode == TRANSLATION || _animMode == TRANSLATION_AND_TRANSPARENCY)
 	{
+		//TODO
 			//3. set the transparency callback on it (0 to 1)
 				//careful with the bg transparency
 	}
 
 	if(_animMode == TRANSPARENCY || _animMode == TRANSLATION_AND_TRANSPARENCY)
 	{
+		//TODO
 			//4. set the transparency callbcak on the one which will be removed (1 to 0)
 				//careful with the bg transparency
 			//5. set animation callback on each one
@@ -180,7 +182,7 @@ void HudManager::removeText(HudText * hudText)
 	//remove it from the list
 	_hudTexts.pop_front();
 
-	//TODO : callback of animation should be removed too
+	//TODO : callback of animation should be removed too (unless if they remove themselves
 }
 
 
@@ -194,6 +196,8 @@ void HudManager::TextsUpdateCallback::operator ()(osg::Node *node, osg::NodeVisi
 	//better than the precision here
 	osg::Timer_t actual = osg::Timer::instance()->tick();
 
+
+	//First remove texts
 	if(texts->size() > 0)
 	{
 		bool stopRemoving = false;
