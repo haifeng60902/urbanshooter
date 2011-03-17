@@ -46,7 +46,9 @@ public :
 	};
 
 
-	/** Animation mode */
+	/** Animation mode 
+	 *	TODO : NOT used yet
+	*/
 	enum AnimationMode {
 		NO_ANIM,
 		TRANSLATION,

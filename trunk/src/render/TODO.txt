@@ -24,3 +24,7 @@ Parametres d'affichage du HUD :
 Partage des instances des backgrounds des textes
 Méthode virtuelle ou operateur d'une classe interne, méthode de get/set associée
 
+
+
+Config CMAKE !!
+Lib dynamique
