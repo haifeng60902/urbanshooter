@@ -27,11 +27,18 @@ include_directories(${OPENTHREADS_INCLUDE_DIRS})
 include_directories("./src")
 
 
-#Génération de la liste des fichiers sources
+
+#Génération de la liste des fichiers header
 file(
 	GLOB_RECURSE
-	source_files
-	src/*
+	header_source_files
+	src/*.h
+)
+#Génération de la liste des fichiers cpp
+file(
+	GLOB_RECURSE
+	cpp_source_files
+	src/*.cpp
 )
 
 
@@ -39,7 +46,7 @@ file(
 add_library(
 	${LIBRARYNAME}
 	SHARED
-	${source_files}
+	${cpp_source_files} ${header_source_files}
 )
 
 #ajout au linker
