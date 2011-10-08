@@ -9,22 +9,23 @@ project(${LIBRARYNAME})
 
 #Repertoire de sortie des compilations
 set(LIBRARY_OUTPUT_PATH lib)
-#SET_TARGET_PROPERTIES(${LIBRARYNAME} LIBRARY_OUTPUT_DIRECTORY lib)
 
-#link flags
-#SET_TARGET_PROPERTIES(${LIBRARYNAME} PROPERTIES LINK_FLAGS "DEBUG")
-#SET_TARGET_PROPERTIES(${LIBRARYNAME} PROPERTIES LINK_FLAGS "RELEASE")
 
-#inclusion d'OSG
-
+#inclusion d'OSG et OpenThreads
 FIND_PACKAGE(OpenThreads)
 FIND_PACKAGE(OpenSceneGraph 2.8.0 REQUIRED QUIET COMPONENTS osg osgDB osgUtil osgGA osgText osgFX osgViewer)
 
+
+#ajout des includes des libs dans les paths d'include
 include_directories(${OPENSCENEGRAPH_INCLUDE_DIRS})
 include_directories(${OPENTHREADS_INCLUDE_DIRS})
 
 #Do not forget its own includes
-include_directories("./src")
+include_directories("src")
+
+#add bin include dir
+set( OSGBuildRootDirectory "Please specify osg binaries directory where Cmake puts the project file" CACHE PATH "OSG Root directory")
+include_directories("${OSGBuildRootDirectory}/include")
 
 
 
@@ -49,9 +50,11 @@ add_library(
 	${cpp_source_files} ${header_source_files}
 )
 
-#ajout au linker
+#ajout des libs au linker
 target_link_libraries(
 	${LIBRARYNAME}
 	${OPENTHREADS_LIBRARIES}
 	${OPENSCENEGRAPH_LIBRARIES}
 )
+
+

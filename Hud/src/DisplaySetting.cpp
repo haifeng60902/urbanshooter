@@ -1,6 +1,6 @@
 
-#include <hud/DisplaySetting.h>
-#include <hud/DisplayGeometry.h>
+#include <DisplaySetting.h>
+#include <DisplayGeometry.h>
 
 
 DisplaySetting::DisplaySetting()

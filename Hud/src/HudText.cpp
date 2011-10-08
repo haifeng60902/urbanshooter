@@ -1,8 +1,8 @@
-#include <hud/HudText.h>
+#include <HudText.h>
 
-#include <hud/DisplaySetting.h>
-#include <hud/DisplayGeometry.h>
-#include <render/Effects.h>
+#include <DisplaySetting.h>
+#include <DisplayGeometry.h>
+#include <Effects.h>
 
 HudText::HudText(const std::string & text, DisplaySetting * ds) {
 
