@@ -8,7 +8,7 @@ SET(LIBRARYNAME Hud)
 project(${LIBRARYNAME})
 
 #Repertoire de sortie des compilations
-set(LIBRARY_OUTPUT_PATH lib)
+set(LIBRARY_OUTPUT_PATH ../bin)
 
 
 #inclusion d'OSG et OpenThreads
