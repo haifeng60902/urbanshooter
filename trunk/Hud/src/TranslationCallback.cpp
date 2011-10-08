@@ -1,8 +1,8 @@
-#include <animation/TranslationCallback.h>
+#include <TranslationCallback.h>
+#include <CallbackManager.h>
 
 #include <osg/PositionAttitudeTransform>
 
-#include <animation/CallbackManager.h>
 
 TranslationCallback::TranslationCallback(osg::Vec3d goal, double duration) :
 	_goal ( goal ),

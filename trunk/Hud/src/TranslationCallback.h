@@ -6,7 +6,7 @@
 #include <osg/Timer>
 #include <osg/Vec3d>
 
-#include <utility/Macros.h>
+#include <Macros.h>
 
 /** Callback that makes a osg::PositionAttitudeTransform move from its position to a new position
  *	during a fixed duration
