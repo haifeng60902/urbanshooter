@@ -17,7 +17,11 @@ public:
 	//pass and return the total pass number
 	int pass();
 
+	//print the result
 	void printGeneration();
+
+	//get the generation
+	Elements getGeneration();
 
 private:
 	
