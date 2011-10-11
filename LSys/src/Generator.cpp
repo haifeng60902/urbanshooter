@@ -33,6 +33,12 @@ void Generator::printGeneration()
 		<< std::endl;
 }
 
+Elements Generator::getGeneration()
+{
+	return _generation;
+}
+
+
 int Generator::pass()
 {
 
