@@ -6,16 +6,16 @@ int main(int argc, char* argv[])
 {
 
 	Regle regle;
-	regle.add(Element('A'), Regle::fromString("B"));
-	regle.add(Element('B'), Regle::fromString("AB"));
+	regle.add(Element('B'), Regle::fromString("F[-B]+B"));
+	regle.add(Element('F'), Regle::fromString("FF"));
 
-	Generator g(regle, Regle::fromString("A"));
+	Generator g(regle, Regle::fromString("B"));
 
 
 	int passNum = 0;
 	g.printGeneration();
 
-	while( passNum <= 6)
+	while( passNum <= 3)
 	{
 		passNum = g.pass();
 		g.printGeneration();

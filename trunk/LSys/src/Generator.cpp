@@ -44,8 +44,12 @@ int Generator::pass()
 	{
 		Elements el = _regle.get(_generation.at(i) );
 		
-		for(unsigned int j=0 ; j<el.size() ; ++j)
-			newGeneration.push_back( el.at(j) );
+		//if not found, just copy the element
+		if(el.empty())
+			newGeneration.push_back( _generation.at(i));
+		else
+			for(unsigned int j=0 ; j<el.size() ; ++j)
+				newGeneration.push_back( el.at(j) );
 	}
 	
 	//erase ole generation by new
