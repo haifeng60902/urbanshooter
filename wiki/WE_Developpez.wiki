@@ -1,0 +1,23 @@
+#summary Roadmap et todoList - WE developpez.com
+
+= ToDo Before =
+
+ * Commiter/tester Fmod plugin pour la lecture de sons
+ * Tester/concevoir un FPManipulator
+ * Telechargement/modelisation de datas (fusil + cibles)
+ * Doc animation !
+ * Comment faire un zoom lunette sans déplacement ?
+
+= RoadMap =
+
+ * Conception et timeline
+ * Fichier de config : 
+  * taille ou rendu fullscreen + screen num
+  * Vitesse de la souris
+ * Viewer + FPManip
+ * Scene basique avec cibles
+ * picking/shoot + target atteinte
+ * Hud de Zoom lunette (pos fixe + camera zoom + hud rond + viseur)
+ * Animations
+ * Sons
+ * realisme : flou, imprecision
