@@ -1,6 +1,6 @@
 #summary Roadmap et todoList - WE developpez.com
 
-= ToDo Before =
+= !ToDo Before =
 
  * Commiter/tester Fmod plugin pour la lecture de sons
  * Tester/concevoir un FPManipulator
@@ -8,7 +8,7 @@
  * Doc animation !
  * Comment faire un zoom lunette sans déplacement ?
 
-= RoadMap =
+= !RoadMap =
 
  * Conception et timeline
  * Fichier de config : 
