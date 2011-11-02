@@ -25,3 +25,6 @@
  * Animations
  * Sons
  * realisme : flou, imprecision
+
+= Tools = 
+ * Config file : http://www-personal.umich.edu/~wagnerr/ConfigFile.html
