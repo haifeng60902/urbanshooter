@@ -17,7 +17,8 @@
   * Vitesse de la souris
  * Systeme pr vitesse constante (ne dépend pas du FPS)
  * Viewer + FPManip
- * Telechargement/modelisation de datas (fusil + cibles) * Scene basique avec cibles (3ds max 9 en admin + export avec nodemasks)
+ * Telechargement/modelisation de datas (fusil + cibles) 
+  * Scene basique avec cibles (3ds max 9 en admin + export avec nodemasks)
  * picking/shoot + target atteinte
  * Hud de Zoom lunette (pos fixe + camera zoom + hud rond + viseur)
  * Manipulator + collisions
