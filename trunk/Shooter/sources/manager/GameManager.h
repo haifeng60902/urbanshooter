@@ -3,6 +3,10 @@
 
 #include <config/Settings.h>
 
+class GraphicEngine;
+class GameEngine;
+class SoundEngine;
+
 class GameManager
 {
 public:
@@ -10,11 +14,18 @@ public:
 	GameManager(const std::string & configFilePath);
 	~GameManager();
 
+	void run();
+
 private:
+
+	void frame();
 
 	Settings * _settings;
 
 	
+	GraphicEngine * _graphicEngine;
+	GameEngine *	_gameEngine;
+	SoundEngine *	_soundEngine;
 };
 
 

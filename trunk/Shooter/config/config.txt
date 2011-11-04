@@ -1,5 +1,5 @@
 #config file
 
-#screen configuration
-screenNum = 1 #0 for 1rt scren, 1 for second, etc...
+#screen configuration (on multi-screen systems)
+screenNum = 1 #0 for first scren, 1 for second screen, etc...
 
