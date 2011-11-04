@@ -12,7 +12,8 @@ public:
 	~GameEngine();
 
 	void frame();
-
+	bool isValid();
+	void initialize();
 };
 
 

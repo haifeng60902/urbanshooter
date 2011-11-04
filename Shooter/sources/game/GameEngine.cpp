@@ -12,3 +12,12 @@ GameEngine::~GameEngine()
 void GameEngine::frame()
 {
 }
+
+bool GameEngine::isValid()
+{
+	return true;
+}
+
+void GameEngine::initialize()
+{
+}

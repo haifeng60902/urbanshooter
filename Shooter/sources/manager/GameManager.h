@@ -14,6 +14,7 @@ public:
 	GameManager(const std::string & configFilePath);
 	~GameManager();
 
+	void initialize();
 	void run();
 
 private:

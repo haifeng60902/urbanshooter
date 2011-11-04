@@ -6,6 +6,7 @@
 class GameEngine;
 class GraphicEngine;
 class SoundEngine;
+class Settings;
 
 //base class for engines
 class Engine
@@ -23,6 +24,12 @@ public :
 	//called each frame
 	virtual void frame()=0;
 
+	//test the validity
+	virtual bool isValid()=0;
+
+	//before frame
+	virtual void initialize()=0;
+
 
 	inline GameEngine * getGameEngine(){ return _game; }
 	void setGameEngine(GameEngine * game){ _game = game; }
@@ -34,11 +41,18 @@ public :
 	void setSoundEngine(SoundEngine * sound){ _sound = sound; }
 
 
+
+	inline Settings * getSettings(){ return _settings; }
+	void setSettings(Settings * sets){ _settings = sets; }
+
+
 private:
 
 	GameEngine *	_game;
 	GraphicEngine * _graphic;
 	SoundEngine *	_sound;
+
+	Settings * _settings;
 
 };
 
