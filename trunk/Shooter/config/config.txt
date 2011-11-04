@@ -1,5 +1,22 @@
-#config file
+##########################
+#FICHIER DE CONFIGURATION#
+##########################
 
-#screen configuration (on multi-screen systems)
-screenNum = 1 #0 for first scren, 1 for second screen, etc...
+#Numero de l'ecran
+# 0 pour le premier ecran, 1 pour le second ecran, etc...
+screenNum = 1 
 
+################################################################
+#Viseur
+#Couleur RBG (0 à 1)
+viewFinderRed=1.0
+viewFinderGreen=1.0
+viewFinderBlue=0.0
+
+#Epaisseur
+viewFinderWidth=1.0
+
+
+################################################################
+#DEBUG 
+enableEventHandler = true

@@ -13,7 +13,11 @@ Settings::Settings(const std::string & configFilePath):
 	ConfigFile config( configFilePath );
 
 	config.readInto( screenNum, "screenNum" );
-
+	config.readInto( enableEventHandler, "enableEventHandler" );
+	config.readInto( viewFinderRed, "viewFinderRed" );
+	config.readInto( viewFinderGreen, "viewFinderGreen" );
+	config.readInto( viewFinderBlue, "viewFinderBlue" );
+	config.readInto( viewFinderWidth, "viewFinderWidth" );
 
 
 }

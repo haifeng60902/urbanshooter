@@ -10,6 +10,11 @@ public:
 	~Settings();
 
 	int screenNum;
+	bool enableEventHandler;
+	double viewFinderRed;
+	double viewFinderGreen;
+	double viewFinderBlue;
+	double viewFinderWidth;
 };
 
 #endif //_SETTINGS_H_

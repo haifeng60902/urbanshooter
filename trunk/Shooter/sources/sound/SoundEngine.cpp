@@ -12,3 +12,12 @@ void SoundEngine::frame()
 {
 
 }
+
+bool SoundEngine::isValid()
+{
+	return true;
+}
+
+void SoundEngine::initialize()
+{
+}

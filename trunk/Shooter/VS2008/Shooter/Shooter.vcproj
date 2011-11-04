@@ -41,14 +41,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Shooter\sources;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				DebugInformationFormat="4"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\Codage\urbanshooter\Shooter\sources;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\OSG_2.8.2\binaries\include"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -237,6 +237,14 @@
 				</File>
 				<File
 					RelativePath="..\..\sources\graphic\GraphicEngine.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\HudViewFinder.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\HudViewFinder.h"
 					>
 				</File>
 			</Filter>

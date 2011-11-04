@@ -10,9 +10,9 @@ int main()
 
 	GameManager gm("./config/config.txt");
 
+	gm.initialize();
 
-
-
+	gm.run();
 
 
 	return 0;

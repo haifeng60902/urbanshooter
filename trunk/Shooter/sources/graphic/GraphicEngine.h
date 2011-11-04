@@ -4,6 +4,7 @@
 #include <manager/Engine.h>
 
 #include <osgViewer/Viewer>
+#include <osg/Group>
 
 class GraphicEngine : public Engine
 {
@@ -14,9 +15,14 @@ public:
 
 	void frame();
 
+	bool isValid();
+
+	void initialize();
+
 private:
 
 	osg::ref_ptr<osgViewer::Viewer> _viewer;
+	osg::ref_ptr<osg::Group> _root;
 };
 
 #endif

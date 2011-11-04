@@ -14,6 +14,10 @@ GameManager::GameManager(const std::string & configFilePath)
 	_gameEngine		= new GameEngine();
 	_soundEngine	= new SoundEngine();
 
+	_graphicEngine->setSettings(_settings);
+	_gameEngine->setSettings(_settings);
+	_soundEngine->setSettings(_settings);
+
 
 	_graphicEngine->setGameEngine(_gameEngine);
 	_graphicEngine->setSoundEngine(_soundEngine);
@@ -36,15 +40,24 @@ GameManager::~GameManager()
 	delete _graphicEngine;
 }
 
+void GameManager::initialize()
+{
+	_gameEngine->initialize();
+	_soundEngine->initialize();
+	_graphicEngine->initialize();
+}
 
 void GameManager::run()
 {
-	while(NULL) //graphic engine : valid (all engines, when one die, all are killed)
+	while(_gameEngine->isValid() && _graphicEngine->isValid() && _soundEngine->isValid())
 		frame();
 }
 
 void GameManager::frame()
 {
 	//frame each engine
+	_gameEngine->frame();
+	_soundEngine->frame();
+	_graphicEngine->frame();
 
 }

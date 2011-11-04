@@ -10,6 +10,8 @@ public:
 	~SoundEngine();
 
 	void frame();
+	bool isValid();
+	void initialize();
 };
 
 #endif //_SOUND_ENGINE_H_
