@@ -1,0 +1,5 @@
+#config file
+
+#screen configuration
+screenNum = 1 #0 for 1rt scren, 1 for second, etc...
+
