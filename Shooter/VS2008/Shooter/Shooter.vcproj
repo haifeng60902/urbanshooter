@@ -204,11 +204,51 @@
 				Name="manager"
 				>
 				<File
+					RelativePath="..\..\sources\manager\Engine.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\sources\manager\GameManager.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\..\sources\manager\GameManager.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="game"
+				>
+				<File
+					RelativePath="..\..\sources\game\GameEngine.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\game\GameEngine.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="graphic"
+				>
+				<File
+					RelativePath="..\..\sources\graphic\GraphicEngine.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\GraphicEngine.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="sound"
+				>
+				<File
+					RelativePath="..\..\sources\sound\SoundEngine.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\sound\SoundEngine.h"
 					>
 				</File>
 			</Filter>
