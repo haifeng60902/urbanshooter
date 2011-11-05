@@ -232,6 +232,14 @@
 				Name="graphic"
 				>
 				<File
+					RelativePath="..\..\sources\graphic\EventHandler.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\EventHandler.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\sources\graphic\GraphicEngine.cpp"
 					>
 				</File>

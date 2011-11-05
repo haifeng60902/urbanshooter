@@ -7,6 +7,7 @@
 #include <osgGA/TrackballManipulator>
 
 #include <graphic/HudViewFinder.h>
+#include <graphic/EventHandler.h>
 
 GraphicEngine::GraphicEngine()
 {
@@ -41,6 +42,8 @@ void GraphicEngine::initialize()
 	_viewer->setUpViewOnSingleScreen(getSettings()->screenNum);
 //	_viewer->setUpViewInWindow(50,50,1280,1024,1);
 
+
+	_viewer->addEventHandler(new EventHandler());
 
 	_viewer->setSceneData(_root);
 
