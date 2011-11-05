@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources;&quot;D:\codage\FMOD\bin\FMOD Programmers API Win32\api\inc&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,9 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreadsd.lib osgd.lib osgDBd.lib osgGAd.lib osgUtild.lib osgTextd.lib osgFXd.lib osgViewerd.lib"
+				AdditionalDependencies="OpenThreadsd.lib osgd.lib osgDBd.lib osgGAd.lib osgUtild.lib osgTextd.lib osgFXd.lib osgViewerd.lib fmodex_vc.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
+				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib;D:\codage\FMOD\bin\FMOD Programmers API Win32\api\lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources"
+				AdditionalIncludeDirectories="D:\Codage\OSG_2.8.2\binaries\include;D:\Codage\OSG_2.8.2\sources\src\include;D:\Codage\urbanshooter\Shooter\sources;&quot;D:\codage\FMOD\bin\FMOD Programmers API Win32\api\inc&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -136,9 +136,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreads.lib osg.lib osgDB.lib osgGA.lib osgUtil.lib osgText.lib osgFX.lib osgViewer.lib"
+				AdditionalDependencies="OpenThreads.lib osg.lib osgDB.lib osgGA.lib osgUtil.lib osgText.lib osgFX.lib osgViewer.lib fmodex_vc.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib"
+				AdditionalLibraryDirectories="D:\Codage\OSG_2.8.2\binaries\lib;D:\codage\FMOD\bin\FMOD Programmers API Win32\api\lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
