@@ -3,18 +3,20 @@
 #include <graphic/GraphicEngine.h>
 
 #include <game/WeaponManager.h>
+#include <game/TargetManager.h>
 #include <game/Sniper.h>
 
 GameEngine::GameEngine()
 {
 	_weaponManager = new WeaponManager();
-
+	_targetManager = new TargetManager();
 }
 
 
 GameEngine::~GameEngine()
 {
 	delete _weaponManager;
+	delete _targetManager;
 }
 
 void GameEngine::frame()
@@ -35,7 +37,11 @@ void GameEngine::initialize()
 	
 }
 
-void GameEngine::onLeftClic()
+void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
 	_weaponManager->Fire();
+
+	_targetManager->Intersect(intersection);
+
+
 }

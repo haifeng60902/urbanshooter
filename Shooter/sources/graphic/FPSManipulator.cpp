@@ -239,9 +239,7 @@ bool FPSManipulator::calcMovement()
 			qv = osg::Quat(-osg::DegreesToRadians((py0-py1)*speed), axis); //inverse rotation
 		}
 		
-
-
-
+		//then apply the rotations
         _rotation = _rotation*qv*qh;
 
 
