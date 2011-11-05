@@ -260,6 +260,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\sources\graphic\FPSManipulator.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\FPSManipulator.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\sources\graphic\GraphicEngine.cpp"
 					>
 				</File>
