@@ -3,6 +3,8 @@
 
 #include <manager/Engine.h>
 
+#include <fmod.hpp>
+
 class SoundEngine : public Engine
 {
 public:
@@ -12,6 +14,12 @@ public:
 	void frame();
 	bool isValid();
 	void initialize();
+
+	void playFire();
+
+private:
+	FMOD::System    *system;
+
 };
 
 #endif //_SOUND_ENGINE_H_

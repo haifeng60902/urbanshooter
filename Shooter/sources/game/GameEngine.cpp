@@ -1,5 +1,7 @@
 #include <game/GameEngine.h>
 
+#include <sound/SoundEngine.h>
+
 #include <graphic/GraphicEngine.h>
 
 #include <game/WeaponManager.h>
@@ -40,6 +42,8 @@ void GameEngine::initialize()
 void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
 	_weaponManager->Fire();
+
+	getSoundEngine()->playFire();
 
 	_targetManager->Intersect(intersection);
 
