@@ -5,7 +5,7 @@
 
 FPSManipulator::FPSManipulator()
 {
-	_center = osg::Vec3(50,0,5);
+	_center = osg::Vec3(-10,0,30);
 	_rotation = osg::Quat();
 
 	home(0.);
@@ -22,7 +22,7 @@ FPSManipulator::~FPSManipulator()
 void FPSManipulator::home(double /*currentTime*/)
 {
 
-	computePosition( osg::Vec3(50,0,5),  osg::Vec3(0,0,5), osg::Z_AXIS);
+	computePosition( osg::Vec3(-10,0,30),  osg::Vec3(0,0,30), osg::Z_AXIS);
 
 }
 

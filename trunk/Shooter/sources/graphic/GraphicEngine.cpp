@@ -54,15 +54,15 @@ void GraphicEngine::initialize()
 
 	
 
-	//_viewer->setUpViewOnSingleScreen(getSettings()->screenNum);
-	_viewer->setUpViewInWindow(50,50,1280,1024,1);
+	_viewer->setUpViewOnSingleScreen(getSettings()->screenNum);
+	//_viewer->setUpViewInWindow(50,50,1280,1024,1);
 
 
 	_viewer->addEventHandler(new EventHandler(getGameEngine()));
 
 	_viewer->setSceneData(_root);
 
-	//_root->addChild(osgDB::readNodeFile("D:/Codage/OSG_2.8.2/sources/data/cow.osg"));
+	//load the scene
 	_root->addChild(osgDB::readNodeFile("./datas/level.osg"));
 
 	//attach the view finder

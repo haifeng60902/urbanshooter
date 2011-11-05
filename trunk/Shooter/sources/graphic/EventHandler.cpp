@@ -35,7 +35,7 @@ bool EventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdap
 				if(view)
 				{		    
 					osgUtil::LineSegmentIntersector::Intersections intersections;
-					if (view->computeIntersections(1280/2, 1024/2, intersections, 0xFFFFFFFE))//shoot from the viewFinder
+					if (view->computeIntersections((ea.getXmin()+ea.getXmax())/2, (ea.getYmin()+ea.getYmax())/2, intersections, 0xFFFFFFFE))//shoot from the viewFinder
 					{
 						_intersection = *(intersections.begin());
 					}
