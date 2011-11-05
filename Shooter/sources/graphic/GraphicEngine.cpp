@@ -43,7 +43,7 @@ void GraphicEngine::initialize()
 //	_viewer->setUpViewInWindow(50,50,1280,1024,1);
 
 
-	_viewer->addEventHandler(new EventHandler());
+	_viewer->addEventHandler(new EventHandler(getGameEngine()));
 
 	_viewer->setSceneData(_root);
 

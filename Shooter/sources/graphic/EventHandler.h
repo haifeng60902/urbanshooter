@@ -3,12 +3,14 @@
 
 #include <osgGA/GUIEventHandler>
 
+class GameEngine;
+
 //handle the events and dispatch to other listeners
 class EventHandler : public osgGA::GUIEventHandler 
 {
 public:
 
-	EventHandler();
+	EventHandler(GameEngine * ge);
 	~EventHandler();
 
 	bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
@@ -16,6 +18,9 @@ public:
 	void onMouseLeftClic();
 	void onMouseRightClic();
 
+private:
+
+	GameEngine * _ge;
 
 };
 
