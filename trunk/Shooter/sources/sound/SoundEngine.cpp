@@ -22,6 +22,10 @@ SoundEngine::SoundEngine()
 {
 	system = NULL;
 
+	_fireSound = NULL;
+	_reloadSound = NULL;
+	_emptySound = NULL;
+
 }
 
 SoundEngine::~SoundEngine()
@@ -120,15 +124,32 @@ void SoundEngine::initialize()
     ERRCHECK(result);
 #endif
 
+
+	//load and prepare sounds
+	
+    result = system->createSound("./datas/sounds/Shot.wav",FMOD_SOFTWARE, NULL, &_fireSound);
+    ERRCHECK(result);
+
+	result = system->createSound("./datas/sounds/Reload.wav",FMOD_SOFTWARE, NULL, &_reloadSound);
+    ERRCHECK(result);
+
+	result = system->createSound("./datas/sounds/Empty.wav",FMOD_SOFTWARE, NULL, &_emptySound);
+    ERRCHECK(result);
+
+
 }
 
 void SoundEngine::playFire()
 {
+	system->playSound(FMOD_CHANNEL_FREE, _fireSound, false, NULL);
+}
 
-	FMOD::Sound* sound = NULL;
-    FMOD_RESULT result = system->createSound("./datas/sounds/Shot.mp3",FMOD_SOFTWARE, NULL, &sound);
-    ERRCHECK(result);
+void SoundEngine::playReload()
+{
+	system->playSound(FMOD_CHANNEL_FREE, _reloadSound, false, NULL);
+}
 
-	result = system->playSound(FMOD_CHANNEL_FREE, sound, false, NULL);
-
+void SoundEngine::playEmpty()
+{
+	system->playSound(FMOD_CHANNEL_FREE, _emptySound, false, NULL);
 }

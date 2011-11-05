@@ -16,10 +16,16 @@ public:
 	void initialize();
 
 	void playFire();
+	void playReload();
+	void playEmpty();
 
 private:
 	FMOD::System    *system;
 
+	FMOD::Sound* _fireSound;
+	FMOD::Sound* _reloadSound;
+	FMOD::Sound* _emptySound;
+	
 };
 
 #endif //_SOUND_ENGINE_H_

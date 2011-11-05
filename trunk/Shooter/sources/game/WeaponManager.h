@@ -14,8 +14,10 @@ public :
 	inline void setActiveWeapon(Weapon * w){ _activeWeapon = w;}
 	Weapon* getActiveWeapon(){ return _activeWeapon; }
 
+	enum WeaponMode { WEAPON_SHOOT, WEAPON_RELOAD, WEAPON_EMPTY, WEAPON_ERROR };
+
 	//from here manage the graphical and other stuffs
-	void Fire();
+	WeaponMode Fire();
 
 
 private:
