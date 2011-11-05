@@ -30,9 +30,13 @@ void TargetManager::Intersect(osgUtil::LineSegmentIntersector::Intersection inte
 	
 
 	//no valid intersection
-	if(i<0 || !target)
+	if(i<0)
 		return;
-
+	
+	if(!target)
+		return;
+	else
+		target->setNodeMask(0x0);
 
 	//first check if the intersected node is a target
 
