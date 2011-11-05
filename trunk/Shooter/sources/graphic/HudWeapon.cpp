@@ -31,6 +31,7 @@ HudWeapon::HudWeapon()
 	_weaponRoot->getOrCreateStateSet()->setMode(GL_CULL_FACE, osg::StateAttribute::OFF);
 //	_weaponRoot->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF|osg::StateAttribute::PROTECTED|osg::StateAttribute::OVERRIDE);
 
+	_weaponRoot->setNodeMask(0x1);
 }
 
 HudWeapon::~HudWeapon()

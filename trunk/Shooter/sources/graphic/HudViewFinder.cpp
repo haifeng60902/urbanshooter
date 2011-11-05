@@ -84,4 +84,7 @@ void HudViewFinder::createGeometry()
 
 	geode->addDrawable(geom);
 	addChild(geode);
+
+	geode->setNodeMask(0x1);
+	
 }

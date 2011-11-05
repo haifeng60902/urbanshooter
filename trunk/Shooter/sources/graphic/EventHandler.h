@@ -2,6 +2,8 @@
 #define _EVENT_HANDLER_H_
 
 #include <osgGA/GUIEventHandler>
+#include <osg/Node>
+#include <osgUtil/LineSegmentIntersector>
 
 class GameEngine;
 
@@ -21,6 +23,8 @@ public:
 private:
 
 	GameEngine * _ge;
+
+	osgUtil::LineSegmentIntersector::Intersection _intersection;
 
 };
 

@@ -2,8 +2,10 @@
 #define _GAME_ENGINE_H_
 
 #include <manager/Engine.h>
+#include <osgUtil/LineSegmentIntersector>
 
 class WeaponManager;
+class TargetManager;
 
 //manage the game
 class GameEngine : public Engine
@@ -17,11 +19,13 @@ public:
 	bool isValid();
 	void initialize();
 
-	void onLeftClic();
+	void onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection);
 
 private:
 
 	WeaponManager* _weaponManager;
+	
+	TargetManager * _targetManager;
 };
 
 
