@@ -1,8 +1,10 @@
 #include <graphic/EventHandler.h>
 
 #include <iostream>
+#include <game/GameEngine.h>
 
-EventHandler::EventHandler()
+EventHandler::EventHandler(GameEngine * ge) : 
+	_ge( ge )
 {
 }
 
@@ -53,6 +55,9 @@ bool EventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdap
 void EventHandler::onMouseLeftClic()
 {
 	std::cout<<"Mouse left ! " << std::endl;
+	
+	//notify the game engine
+	_ge->onLeftClic();
 }
 
 void EventHandler::onMouseRightClic()

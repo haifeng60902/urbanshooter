@@ -227,6 +227,26 @@
 					RelativePath="..\..\sources\game\GameEngine.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\sources\game\Sniper.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\game\Weapon.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\game\Weapon.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\game\WeaponManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\game\WeaponManager.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="graphic"

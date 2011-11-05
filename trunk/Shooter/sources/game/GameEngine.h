@@ -3,6 +3,8 @@
 
 #include <manager/Engine.h>
 
+class WeaponManager;
+
 //manage the game
 class GameEngine : public Engine
 {
@@ -14,6 +16,12 @@ public:
 	void frame();
 	bool isValid();
 	void initialize();
+
+	void onLeftClic();
+
+private:
+
+	WeaponManager* _weaponManager;
 };
 
 
