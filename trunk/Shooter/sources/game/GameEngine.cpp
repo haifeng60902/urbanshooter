@@ -1,5 +1,6 @@
 #include <game/GameEngine.h>
 
+#include <graphic/GraphicEngine.h>
 
 #include <game/WeaponManager.h>
 #include <game/Sniper.h>
@@ -28,8 +29,10 @@ bool GameEngine::isValid()
 void GameEngine::initialize()
 {
 	// add a default weapon
-	_weaponManager->setActiveWeapon( new Sniper());
-
+	Sniper * s = new Sniper();
+	_weaponManager->setActiveWeapon( s );
+	getGraphicEngine()->setActiveWeapon( s );
+	
 }
 
 void GameEngine::onLeftClic()

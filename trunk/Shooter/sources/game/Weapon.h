@@ -1,6 +1,7 @@
 #ifndef _WEAPON_H_
 #define _WEAPON_H_
 
+#include <string>
 
 //base class for weapon
 class Weapon
@@ -8,9 +9,11 @@ class Weapon
 	
 public:
 
-	Weapon(unsigned int nb_balles, unsigned int capacite_chargeur);
+	Weapon(std::string filename, unsigned int nb_balles, unsigned int capacite_chargeur);
 	~Weapon();
 
+
+	std::string getFileName();
 
 	//nombre de chargeurs non vides
 	unsigned int GetNbChargeur();
@@ -33,6 +36,9 @@ private:
 	unsigned int _nb_balles;
 
 	unsigned int _nbBallesChargeur;
+
+	std::string _fileName;
+
 };
 
 #endif //_WEAPON_H_

@@ -275,6 +275,14 @@
 					RelativePath="..\..\sources\graphic\HudViewFinder.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\sources\graphic\HudWeapon.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\HudWeapon.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="sound"

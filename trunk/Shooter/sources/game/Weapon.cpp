@@ -1,11 +1,12 @@
 #include <game/Weapon.h>
 #include <iostream>
 
-Weapon::Weapon(unsigned int nb_balles, unsigned int capacite_chargeur)
+Weapon::Weapon(std::string filename, unsigned int nb_balles, unsigned int capacite_chargeur)
 {
 	_capacite_chargeur = capacite_chargeur;
 	_nb_balles = nb_balles;
 	_nbBallesChargeur = capacite_chargeur;
+	_fileName = filename;
 }
 
 
@@ -13,6 +14,10 @@ Weapon::~Weapon()
 {
 }
 
+std::string Weapon::getFileName()
+{
+	return _fileName;
+}
 
 unsigned int Weapon::GetNbChargeur()
 {
