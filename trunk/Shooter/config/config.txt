@@ -2,9 +2,16 @@
 #FICHIER DE CONFIGURATION#
 ##########################
 
+################################################################
 #Numero de l'ecran
 # 0 pour le premier ecran, 1 pour le second ecran, etc...
 screenNum = 1 
+
+################################################################
+#Touches
+#Capture d'ecran
+screenShotKey = p
+
 
 ################################################################
 #Viseur

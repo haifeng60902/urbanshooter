@@ -18,6 +18,7 @@ Settings::Settings(const std::string & configFilePath):
 	config.readInto( viewFinderGreen, "viewFinderGreen" );
 	config.readInto( viewFinderBlue, "viewFinderBlue" );
 	config.readInto( viewFinderWidth, "viewFinderWidth" );
+	config.readInto( screenShotKey, "screenShotKey" );
 
 
 }
