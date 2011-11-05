@@ -22,7 +22,7 @@ public:
 
 	void initialize();
 
-	void setActiveWeapon( Weapon * w );
+	void setActiveWeapon( Weapon * w ); 
 
 private:
 

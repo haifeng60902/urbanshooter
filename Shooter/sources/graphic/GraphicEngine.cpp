@@ -9,8 +9,11 @@
 #include <graphic/HudViewFinder.h>
 #include <graphic/EventHandler.h>
 #include <graphic/HudWeapon.h>
+#include <graphic/FPSManipulator.h>
 
 #include <game/Weapon.h>
+
+
 
 GraphicEngine::GraphicEngine()
 {
@@ -44,8 +47,11 @@ void GraphicEngine::initialize()
 	
 
 	//DEBUG
-	_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
+	//_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
+	 FPSManipulator * fps = new FPSManipulator();
+	_viewer->setCameraManipulator( fps );
 
+	
 
 	_viewer->setUpViewOnSingleScreen(getSettings()->screenNum);
 //	_viewer->setUpViewInWindow(50,50,1280,1024,1);
@@ -56,6 +62,7 @@ void GraphicEngine::initialize()
 	_viewer->setSceneData(_root);
 
 	_root->addChild(osgDB::readNodeFile("D:/Codage/OSG_2.8.2/sources/data/cow.osg"));
+	_root->addChild(osgDB::readNodeFile("./datas/scene.osg"));
 
 	//attach the view finder
 	_root->addChild(new HudViewFinder(getSettings()->viewFinderRed,getSettings()->viewFinderGreen,getSettings()->viewFinderBlue,getSettings()->viewFinderWidth));
@@ -64,6 +71,16 @@ void GraphicEngine::initialize()
 	_hudWeapon = new HudWeapon();
 	_hudWeapon->setWeaponRoot(_activeWeapon);
 	_root->addChild(_hudWeapon);
+
+
+	//disable cursor
+	osgViewer::Viewer::Windows windows; 
+	_viewer->getWindows(windows); 
+	for(osgViewer::Viewer::Windows::iterator itr = windows.begin();	itr != windows.end();++itr) 
+	{
+		(*itr)->useCursor(false); 
+		fps->setGW((*itr));
+	}
 
 }
 
