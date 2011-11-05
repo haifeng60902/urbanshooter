@@ -28,6 +28,12 @@ void GraphicEngine::initialize()
 	if(getSettings()->enableEventHandler)
 		_viewer->addEventHandler(new osgViewer::StatsHandler());
 	
+	//add screenshot handler
+	osgViewer::ScreenCaptureHandler* sch = new osgViewer::ScreenCaptureHandler();
+	sch->setKeyEventTakeScreenShot(getSettings()->screenShotKey);
+	_viewer->addEventHandler(sch);
+	
+
 	//DEBUG
 	_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
 

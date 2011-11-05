@@ -72,12 +72,6 @@ void HudViewFinder::createGeometry()
 
 	geom->addPrimitiveSet(new osg::DrawArrays(GL_LINES,0,vertices->size()));
 
-	//set transparency
-	/*osg::StateSet* stateset = geom->getOrCreateStateSet();
-	stateset->setMode(GL_BLEND,osg::StateAttribute::ON);
-	stateset->setRenderingHint(osg::StateSet::TRANSPARENT_BIN);
-	*/
-
 	//set width
 	osg::LineWidth * ln = new osg::LineWidth;
 	ln->setWidth(_width);
@@ -85,9 +79,9 @@ void HudViewFinder::createGeometry()
 	//disable lightning
 	geom->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 
-	geode->addDrawable(geom);
-
+	//disable culling
 	geode->setCullingActive(false);
 
+	geode->addDrawable(geom);
 	addChild(geode);
 }

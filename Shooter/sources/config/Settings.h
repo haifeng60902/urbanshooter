@@ -15,6 +15,7 @@ public:
 	double viewFinderGreen;
 	double viewFinderBlue;
 	double viewFinderWidth;
+	char screenShotKey;
 };
 
 #endif //_SETTINGS_H_
