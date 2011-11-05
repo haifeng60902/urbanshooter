@@ -15,10 +15,10 @@ WeaponManager::~WeaponManager()
 }
 
 
-void WeaponManager::Fire()
+WeaponManager::WeaponMode WeaponManager::Fire()
 {
 	if(!_activeWeapon)
-		return;
+		return WEAPON_ERROR;
 
 	//try to shoot
 	if(!Shoot())
@@ -29,9 +29,13 @@ void WeaponManager::Fire()
 			//empty weapon
 			//TODO: display empty on HUD
 			std::cout << "Empty weapon" << std::endl;
-
+			return WEAPON_EMPTY;
 		}
+		else
+			return WEAPON_RELOAD;
 	}
+	else
+		return WEAPON_SHOOT;
 }
 
 bool WeaponManager::Shoot()

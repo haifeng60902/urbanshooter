@@ -41,9 +41,26 @@ void GameEngine::initialize()
 
 void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
-	_weaponManager->Fire();
+	WeaponManager::WeaponMode wmode = _weaponManager->Fire();
 
-	getSoundEngine()->playFire();
+	switch(wmode)
+	{
+		case WeaponManager::WEAPON_SHOOT :
+			getSoundEngine()->playFire();
+			break;
+
+		case WeaponManager::WEAPON_RELOAD :
+			getSoundEngine()->playReload();
+			break;
+
+		case WeaponManager::WEAPON_EMPTY :
+			getSoundEngine()->playEmpty();
+			break;
+
+		case WeaponManager::WEAPON_ERROR :
+			break;
+	}
+
 
 	_targetManager->Intersect(intersection);
 
