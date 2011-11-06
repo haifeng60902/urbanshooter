@@ -9,7 +9,7 @@ class FPSManipulator : public osgGA::MatrixManipulator
 {
 
 public:
-	FPSManipulator();
+	FPSManipulator(double mousScale);
 	~FPSManipulator();
 
 
@@ -40,24 +40,25 @@ public:
 
 	bool calcMovement();
 
-void computePosition(const osg::Vec3& eye,const osg::Vec3& center,const osg::Vec3& up);
+	void computePosition(const osg::Vec3& eye,const osg::Vec3& center,const osg::Vec3& up);
 
 
-void setGW(osgViewer::GraphicsWindow* gw){ _gw = gw; }
+	void setGW(osgViewer::GraphicsWindow* gw){ _gw = gw; }
 
 
 private:
 
-	        // Internal event stack comprising last two mouse events.
-        osg::ref_ptr<const osgGA::GUIEventAdapter> _ga_t1;
-        osg::ref_ptr<const osgGA::GUIEventAdapter> _ga_t0;
+    // Internal event stack comprising last two mouse events.
+    osg::ref_ptr<const osgGA::GUIEventAdapter> _ga_t1;
+    osg::ref_ptr<const osgGA::GUIEventAdapter> _ga_t0;
 
 
-        osg::Vec3d   _center;
-        osg::Quat    _rotation;
+    osg::Vec3d   _center;
+    osg::Quat    _rotation;
 
 	osgViewer::GraphicsWindow* _gw;
 
+	double _mouseScale;
 	
 };
 

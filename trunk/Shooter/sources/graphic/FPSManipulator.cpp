@@ -3,10 +3,12 @@
 #include <iostream>
 
 
-FPSManipulator::FPSManipulator()
+FPSManipulator::FPSManipulator(double mouseScale)
 {
 	_center = osg::Vec3(-10,0,30);
 	_rotation = osg::Quat();
+
+	_mouseScale = mouseScale;
 
 	home(0.);
 }
@@ -210,7 +212,7 @@ bool FPSManipulator::calcMovement()
 			flushMouseEventStack(); //rest to avoid big move
 		}
 
-		double speed = 50.0;
+		double speed = _mouseScale; //default 50.0
 
 
 		//horizontal rotation
