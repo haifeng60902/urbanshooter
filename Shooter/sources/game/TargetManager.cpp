@@ -1,5 +1,10 @@
 #include <game/TargetManager.h>
 
+#include <osg/MatrixTransform>
+#include <osg/PositionAttitudeTransform>
+
+#include <animation/CallbackManager.h>
+#include <animation/RotationCallback.h>
 
 TargetManager::TargetManager()
 {}
@@ -37,9 +42,54 @@ TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersec
 		return TARGET_MISSED;
 	
 
+	//if the node is a MT, replace it by a PAT to manage animations
+	if(!dynamic_cast<osg::PositionAttitudeTransform*>(target))
+	{
+		osg::MatrixTransform * mat = dynamic_cast<osg::MatrixTransform*>(target);
+		if(!mat)
+		{
+			return TARGET_MISSED;
+		}
+		else
+		{
+			osg::PositionAttitudeTransform * pat = new osg::PositionAttitudeTransform();
+			osg::Vec3d trans, scale;
+			osg::Quat rot, so;
+			mat->getMatrix().decompose(trans, rot, scale, so);
+
+			pat->setAttitude(rot);
+			pat->setPosition(trans);
+			pat->setScale(scale);
+
+			//replace the node
+				//children
+			for(unsigned int i=0; i < mat->getNumChildren() ; ++i)
+			{
+				pat->addChild(mat->getChild(i));
+				mat->removeChild(i);
+			}
+
+				//parents
+			osg::Node::ParentList pl = mat->getParents();
+			for(unsigned int i=0; i < pl.size() ; ++i)
+				pl.at(i)->replaceChild(mat, pat);
+
+			target = pat;
+		}
+	}
+
+
+
+	//rotate the target when hit
+	CallbackManager::addNodeCallback(target, new RotationCallback(osg::Y_AXIS, osg::PI_2, 0.3));
+
+
+
+	//reference each target when hit on a simple map (no multiple intance)
+	//when on the floor, random a time and animate in the other way (rapid rotation)
+	//manage hit when animate in the other way
+
+
 	return TARGET_REACHED;
 
-	//first check if the intersected node is a target
-
-	//secondly animate the target
 }
