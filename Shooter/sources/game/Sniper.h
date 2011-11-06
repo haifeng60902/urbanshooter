@@ -8,7 +8,7 @@ class Sniper : public Weapon
 public:
 
 	//15 balles, 5 par chargeur
-	Sniper() : Weapon("./datas/Dragunov.osg",50, 5)
+	Sniper() : Weapon("./datas/Dragunov.osg",100, 5)
 	{}
 
 	~Sniper(){};

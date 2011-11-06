@@ -121,7 +121,8 @@ void GraphicEngine::setActiveWeapon( Weapon * w )
 
 void GraphicEngine::animateManipulator()
 {
-	_fps->animate();
+	_fps->animate();//a shoot has been done
+	_stateHud->hideManual();
 }
 
 
@@ -143,4 +144,10 @@ void GraphicEngine::setRemainingTime(int num)
 void GraphicEngine::setCurrentLoaderBulletNum(int num)
 {
 	_stateHud->setCurrentBulletCountInLoader( num );
+}
+
+
+void GraphicEngine::displayEnd()
+{
+	_stateHud->displayEnd();
 }

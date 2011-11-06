@@ -5,7 +5,7 @@
 ################################################################
 #Numero de l'ecran
 # 0 pour le premier ecran, 1 pour le second ecran, etc...
-screenNum = 1 
+screenNum = 0 
 
 
 ################################################################
@@ -16,7 +16,7 @@ screenShotKey = p
 
 ################################################################
 #Vitesse/sensibilite de la souris
-mouseScale = 50.0
+mouseScale = 40.0
 
 
 ################################################################
@@ -32,4 +32,4 @@ viewFinderWidth=1.0
 
 ################################################################
 #DEBUG 
-enableEventHandler = true
+enableEventHandler = false
