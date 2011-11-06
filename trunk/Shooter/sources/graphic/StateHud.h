@@ -16,9 +16,9 @@ public:
 	StateHud();
 	~StateHud();
 
-	int setScore(int score){ *_scoreI = score; }
-	int setchrono(int chrono){ *_chronoI = chrono; }
-	int setTotalBullet(int bullet){ *_bulletI = bullet; }
+	void setScore(int score){ *_scoreI = score; }
+	void setchrono(int chrono){ *_chronoI = chrono; }
+	void setTotalBullet(int bullet){ *_bulletI = bullet; }
 
 private:
 

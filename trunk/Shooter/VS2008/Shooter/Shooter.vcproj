@@ -228,6 +228,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\sources\game\Score.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\sources\game\Sniper.h"
 					>
 				</File>
