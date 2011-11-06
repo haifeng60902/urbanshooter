@@ -16,6 +16,7 @@ public:
 	double viewFinderBlue;
 	double viewFinderWidth;
 	char screenShotKey;
+	double mouseScale;
 };
 
 #endif //_SETTINGS_H_

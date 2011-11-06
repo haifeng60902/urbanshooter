@@ -49,7 +49,7 @@ void GraphicEngine::initialize()
 	//DEBUG
 	//_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
 
-	 FPSManipulator * fps = new FPSManipulator();
+	FPSManipulator * fps = new FPSManipulator(getSettings()->mouseScale);
 	_viewer->setCameraManipulator( fps );
 
 	
