@@ -14,6 +14,7 @@ GameEngine::GameEngine()
 	_weaponManager = new WeaponManager();
 	_targetManager = new TargetManager();
 	_score = new Score();
+	_end = false;
 }
 
 
@@ -32,6 +33,8 @@ void GameEngine::frame()
 	getGraphicEngine()->setScore(_score->get());
 	getGraphicEngine()->setRemainingTime(_score->getRemainingtTime());
 
+	if(_score->getRemainingtTime() == 0)
+		_end = true;
 }
 
 bool GameEngine::isValid()
@@ -53,6 +56,9 @@ void GameEngine::initialize()
 
 void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
+	if(_end)
+		return;
+
 	//make the weapon fire
 	WeaponManager::WeaponMode wmode = _weaponManager->Fire();
 
