@@ -28,7 +28,7 @@ bool EventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdap
 			if(ea.getButtonMask() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 			{
 				//reset
-				_intersection.nodePath.empty();
+				_intersection.nodePath.clear();
 
 				//compute intersection
 				osgViewer::View* view = dynamic_cast<osgViewer::View*>(&aa);

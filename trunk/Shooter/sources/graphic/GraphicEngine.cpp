@@ -54,8 +54,11 @@ void GraphicEngine::initialize()
 
 	
 
+#ifdef _DEBUG
+	_viewer->setUpViewInWindow(50,50,1280,1024,1);
+#else
 	_viewer->setUpViewOnSingleScreen(getSettings()->screenNum);
-	//_viewer->setUpViewInWindow(50,50,1280,1024,1);
+#endif
 
 
 	_viewer->addEventHandler(new EventHandler(getGameEngine()));
