@@ -348,6 +348,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\sources\animation\ReliveCallback.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\ReLiveCallback.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\sources\animation\RotationCallback.cpp"
 					>
 				</File>

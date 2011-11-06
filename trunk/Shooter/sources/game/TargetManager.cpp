@@ -5,6 +5,7 @@
 
 #include <animation/CallbackManager.h>
 #include <animation/RotationCallback.h>
+#include <animation/ReliveCallback.h>
 
 TargetManager::TargetManager()
 {}
@@ -60,6 +61,7 @@ TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersec
 			pat->setAttitude(rot);
 			pat->setPosition(trans);
 			pat->setScale(scale);
+			pat->setName(mat->getName());
 
 			//replace the node
 				//children
@@ -82,6 +84,9 @@ TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersec
 
 	//rotate the target when hit
 	CallbackManager::addNodeCallback(target, new RotationCallback(osg::Y_AXIS, osg::PI_2, 0.3));
+
+	//add relive callback too
+	CallbackManager::addNodeCallback(target, new ReliveCallback());
 
 
 

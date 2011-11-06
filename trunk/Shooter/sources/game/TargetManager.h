@@ -4,7 +4,6 @@
 
 #include <osgUtil/LineSegmentIntersector>
 
-
 //manage target intersection and results
 class TargetManager
 {
@@ -16,10 +15,9 @@ public:
 
 	ShootResult Intersect(osgUtil::LineSegmentIntersector::Intersection intersection);
 
+	typedef std::set< osg::PositionAttitudeTransform* > TargetMap;
 
 private:
-
-	//ref map for pat's targets that has been animated before
 
 };
 
