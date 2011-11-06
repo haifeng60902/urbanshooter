@@ -16,7 +16,7 @@ MatrixTransform {
     0 0 1 0
     0 0 0 1
   }
-  num_children 2
+  num_children 6
   MatrixTransform {
     DataVariance STATIC
     name "Target_1"
@@ -27,7 +27,7 @@ MatrixTransform {
       1 0 0 0
       0 1 0 0
       0 0 1 0
-      12005 -3163.16 0 1
+      25071.2 -3163.16 0 1
     }
     num_children 1
     MatrixTransform {
@@ -40,7 +40,7 @@ MatrixTransform {
         1 0 0 0
         0 1 0 0
         0 0 1 0
-        11067 1774.38 0 1
+        0 0 0 1
       }
       num_children 1
       Geode {
@@ -684,6 +684,534 @@ MatrixTransform {
           ColorArray Vec4Array 1
           {
             0.6 0.894118 0.721569 1
+          }
+        }
+      }
+    }
+  }
+  MatrixTransform {
+    DataVariance STATIC
+    name "Target_2"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      25071.2 -629.069 0 1
+    }
+    num_children 1
+    MatrixTransform {
+      DataVariance STATIC
+      name "Target01"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      referenceFrame RELATIVE
+      Matrix {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+      }
+      num_children 1
+      Geode {
+        UniqueID Geode_3
+        DataVariance STATIC
+        name "Target01-GEODE"
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          StateSet {
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 1
+          {
+            DrawArrays TRIANGLES 0 36
+          }
+          VertexArray Vec3Array 36
+          {
+            -25 -500 0
+            -25 500 0
+            25 500 0
+            25 500 0
+            25 -500 0
+            -25 -500 0
+            -25 -500 2000
+            25 -500 2000
+            25 500 2000
+            25 500 2000
+            -25 500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 -500 2000
+            25 -500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 500 0
+            25 500 2000
+            25 500 2000
+            25 -500 2000
+            25 -500 0
+            25 500 0
+            -25 500 0
+            -25 500 2000
+            -25 500 2000
+            25 500 2000
+            25 500 0
+            -25 500 0
+            -25 -500 0
+            -25 -500 2000
+            -25 -500 2000
+            -25 500 2000
+            -25 500 0
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 1
+            0 -0 1
+            0 0 1
+            0 0 1
+            -0 0 1
+            0 0 1
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            1 0 0
+            1 0 -0
+            1 0 0
+            1 0 0
+            1 -0 0
+            1 0 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 -0 -0
+            -1 0 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0.0313726 0.431373 0.529412 1
+          }
+        }
+      }
+    }
+  }
+  MatrixTransform {
+    DataVariance STATIC
+    name "Target_3"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      25071.2 1689.76 0 1
+    }
+    num_children 1
+    MatrixTransform {
+      DataVariance STATIC
+      name "Target02"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      referenceFrame RELATIVE
+      Matrix {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+      }
+      num_children 1
+      Geode {
+        UniqueID Geode_4
+        DataVariance STATIC
+        name "Target02-GEODE"
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          StateSet {
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 1
+          {
+            DrawArrays TRIANGLES 0 36
+          }
+          VertexArray Vec3Array 36
+          {
+            -25 -500 0
+            -25 500 0
+            25 500 0
+            25 500 0
+            25 -500 0
+            -25 -500 0
+            -25 -500 2000
+            25 -500 2000
+            25 500 2000
+            25 500 2000
+            -25 500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 -500 2000
+            25 -500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 500 0
+            25 500 2000
+            25 500 2000
+            25 -500 2000
+            25 -500 0
+            25 500 0
+            -25 500 0
+            -25 500 2000
+            -25 500 2000
+            25 500 2000
+            25 500 0
+            -25 500 0
+            -25 -500 0
+            -25 -500 2000
+            -25 -500 2000
+            -25 500 2000
+            -25 500 0
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 1
+            0 -0 1
+            0 0 1
+            0 0 1
+            -0 0 1
+            0 0 1
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            1 0 0
+            1 0 -0
+            1 0 0
+            1 0 0
+            1 -0 0
+            1 0 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 -0 -0
+            -1 0 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0.0313726 0.431373 0.529412 1
+          }
+        }
+      }
+    }
+  }
+  MatrixTransform {
+    DataVariance STATIC
+    name "Target_4"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      18562.5 3918.51 0 1
+    }
+    num_children 1
+    MatrixTransform {
+      DataVariance STATIC
+      name "Target03"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      referenceFrame RELATIVE
+      Matrix {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+      }
+      num_children 1
+      Geode {
+        UniqueID Geode_5
+        DataVariance STATIC
+        name "Target03-GEODE"
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          StateSet {
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 1
+          {
+            DrawArrays TRIANGLES 0 36
+          }
+          VertexArray Vec3Array 36
+          {
+            -25 -500 0
+            -25 500 0
+            25 500 0
+            25 500 0
+            25 -500 0
+            -25 -500 0
+            -25 -500 2000
+            25 -500 2000
+            25 500 2000
+            25 500 2000
+            -25 500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 -500 2000
+            25 -500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 500 0
+            25 500 2000
+            25 500 2000
+            25 -500 2000
+            25 -500 0
+            25 500 0
+            -25 500 0
+            -25 500 2000
+            -25 500 2000
+            25 500 2000
+            25 500 0
+            -25 500 0
+            -25 -500 0
+            -25 -500 2000
+            -25 -500 2000
+            -25 500 2000
+            -25 500 0
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 1
+            0 -0 1
+            0 0 1
+            0 0 1
+            -0 0 1
+            0 0 1
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            1 0 0
+            1 0 -0
+            1 0 0
+            1 0 0
+            1 -0 0
+            1 0 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 -0 -0
+            -1 0 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0.0313726 0.431373 0.529412 1
+          }
+        }
+      }
+    }
+  }
+  MatrixTransform {
+    DataVariance STATIC
+    name "Target_5"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      21410.1 -1933.42 0 1
+    }
+    num_children 1
+    MatrixTransform {
+      DataVariance STATIC
+      name "Target04"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      referenceFrame RELATIVE
+      Matrix {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+      }
+      num_children 1
+      Geode {
+        UniqueID Geode_6
+        DataVariance STATIC
+        name "Target04-GEODE"
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          StateSet {
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 1
+          {
+            DrawArrays TRIANGLES 0 36
+          }
+          VertexArray Vec3Array 36
+          {
+            -25 -500 0
+            -25 500 0
+            25 500 0
+            25 500 0
+            25 -500 0
+            -25 -500 0
+            -25 -500 2000
+            25 -500 2000
+            25 500 2000
+            25 500 2000
+            -25 500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 -500 2000
+            25 -500 2000
+            -25 -500 2000
+            -25 -500 0
+            25 -500 0
+            25 500 0
+            25 500 2000
+            25 500 2000
+            25 -500 2000
+            25 -500 0
+            25 500 0
+            -25 500 0
+            -25 500 2000
+            -25 500 2000
+            25 500 2000
+            25 500 0
+            -25 500 0
+            -25 -500 0
+            -25 -500 2000
+            -25 -500 2000
+            -25 500 2000
+            -25 500 0
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 1
+            0 -0 1
+            0 0 1
+            0 0 1
+            -0 0 1
+            0 0 1
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            1 0 0
+            1 0 -0
+            1 0 0
+            1 0 0
+            1 -0 0
+            1 0 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            0 1 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 -0 -0
+            -1 0 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0.0313726 0.431373 0.529412 1
           }
         }
       }
