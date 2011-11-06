@@ -35,8 +35,9 @@ TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersec
 	
 	if(!target)
 		return TARGET_MISSED;
-	else
-		return TARGET_REACHED;
+	
+
+	return TARGET_REACHED;
 
 	//first check if the intersected node is a target
 
