@@ -30,7 +30,7 @@ void GameEngine::frame()
 	//update the hud
 	getGraphicEngine()->setBulletNum(_weaponManager->getActiveWeapon()->GetNbBalles());
 	getGraphicEngine()->setScore(_score->get());
-	getGraphicEngine()->setRemainingTime(0);
+	getGraphicEngine()->setRemainingTime(_score->getRemainingtTime());
 
 }
 
@@ -59,8 +59,29 @@ void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection inters
 	switch(wmode)
 	{
 		case WeaponManager::WEAPON_SHOOT :
-			getSoundEngine()->playFire();
-			break;
+			{
+				getSoundEngine()->playFire();
+
+				//get the result
+				TargetManager::ShootResult sres = _targetManager->Intersect(intersection);
+
+				switch(sres)
+				{
+					case TargetManager::TARGET_WRONG :
+						_score->addWrongShoot();
+						break;
+
+					case TargetManager::TARGET_MISSED :
+						_score->addVoidShoot();
+						break;
+
+					case TargetManager::TARGET_REACHED :
+						_score->addTargetShoot();
+						break;
+				}
+
+				break;
+			}
 
 		case WeaponManager::WEAPON_RELOAD :
 			getSoundEngine()->playReload();
@@ -75,22 +96,6 @@ void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection inters
 	}
 
 
-	//get the result
-	TargetManager::ShootResult sres = _targetManager->Intersect(intersection);
-
-	switch(sres)
-	{
-		case TargetManager::TARGET_WRONG :
-			_score->addWrongShoot();
-			break;
-
-		case TargetManager::TARGET_MISSED :
-			_score->addVoidShoot();
-			break;
-
-		case TargetManager::TARGET_REACHED :
-			_score->addTargetShoot();
-			break;
-	}
+	
 
 }
