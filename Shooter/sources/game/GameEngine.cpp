@@ -68,6 +68,9 @@ void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection inters
 			{
 				getSoundEngine()->playFire();
 
+				//animate the manipulator
+				getGraphicEngine()->animateManipulator();
+
 				//get the result
 				TargetManager::ShootResult sres = _targetManager->Intersect(intersection);
 

@@ -5,6 +5,8 @@
 
 #include <osgViewer/GraphicsWindow>
 
+#include <osg/Timer>
+
 class FPSManipulator : public osgGA::MatrixManipulator
 {
 
@@ -45,6 +47,7 @@ public:
 
 	void setGW(osgViewer::GraphicsWindow* gw){ _gw = gw; }
 
+	void animate();
 
 private:
 
@@ -59,6 +62,18 @@ private:
 	osgViewer::GraphicsWindow* _gw;
 
 	double _mouseScale;
+
+
+
+	//animation
+	
+	double computeAnimation();
+	
+	double _amplitudeMax;
+	double _duration;
+	osg::Timer_t _start_tick;
+	bool _animate;
+	
 	
 };
 

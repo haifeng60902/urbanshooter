@@ -8,7 +8,7 @@ class Score
 {
 public:
 	//start with 10s
-	Score() : _total( 0 ) , _total_time(10)
+	Score() : _total( 0 ) , _total_time(12)
 	{
 		_startTick = osg::Timer::instance()->tick();
 	}

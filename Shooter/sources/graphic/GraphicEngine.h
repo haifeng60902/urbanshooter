@@ -6,6 +6,7 @@
 #include <osgViewer/Viewer>
 #include <osg/Group>
 #include <graphic/StateHud.h>
+#include <graphic/FPSManipulator.h>
 
 class Weapon;
 class HudWeapon;
@@ -30,6 +31,8 @@ public:
 	void setRemainingTime(int time);
 	void setCurrentLoaderBulletNum(int num);
 
+	void animateManipulator();
+
 private:
 
 	osg::ref_ptr<osgViewer::Viewer> _viewer;
@@ -40,6 +43,7 @@ private:
 	osg::ref_ptr<HudWeapon> _hudWeapon;
 	osg::ref_ptr<StateHud>	_stateHud;
 
+	osg::ref_ptr<FPSManipulator> _fps;
 };
 
 #endif

@@ -5,6 +5,8 @@
 
 FPSManipulator::FPSManipulator(double mouseScale)
 {
+	_animate = false;
+
 	_center = osg::Vec3(-10,0,30);
 	_rotation = osg::Quat();
 
@@ -184,14 +186,14 @@ bool FPSManipulator::calcMovement()
     float dx = _ga_t0->getXnormalized()-_ga_t1->getXnormalized();
     float dy = _ga_t0->getYnormalized()-_ga_t1->getYnormalized();
 
-    float distance = sqrtf(dx*dx + dy*dy);
+   // float distance = sqrtf(dx*dx + dy*dy);
    
     
     // return if there is no movement.
-    if (distance==0.0f)
+   /* if (distance==0.0f)
     {
         return false;
-    }
+    }*/
 
   //  unsigned int buttonMask = _ga_t1->getButtonMask();
   //  if (buttonMask==osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)//pk for test, to be removed after
@@ -234,7 +236,7 @@ bool FPSManipulator::calcMovement()
 		double scalar = front * osg::Z_AXIS;
 		osg::Quat qv;
 
-		qv = osg::Quat(osg::DegreesToRadians((py0-py1)*speed), axis);
+		qv = osg::Quat(osg::DegreesToRadians((py0-py1)*speed+computeAnimation()), axis);
 
 		if((scalar > 0.9 && py0 > py1 ) || (scalar < -0.9 && py0 < py1 )) //going up or down near vertical axis
 		{
@@ -299,4 +301,43 @@ bool FPSManipulator::calcMovement()
     }*/
 
     return false;
+}
+
+
+void FPSManipulator::animate()
+{
+	//as a callback, set an animation
+
+	_start_tick = osg::Timer::instance()->tick();
+	_amplitudeMax = 0.4;
+	_duration = 0.2;
+	_animate = true;
+}
+
+double FPSManipulator::computeAnimation()
+ {
+	//called each frame, return the amplitude to add
+
+	if(_animate)
+	{
+		osg::Timer_t actual_tick = osg::Timer::instance()->tick();
+
+		double duration = osg::Timer::instance()->delta_s(_start_tick , actual_tick);
+
+		if(duration < _duration/3.0)//  1/3
+		{
+			//up
+			return _amplitudeMax * (duration/(_duration/3.0));
+		}
+		//too complicated, not so simple to make... not enough time!
+		/*else if(duration < _duration)//2/3
+		{
+			//down
+			return  -_amplitudeMax * ((duration-_duration/3.0)/(_duration*2/3.0));
+		}
+		else*/
+			_animate = false;
+	}
+
+	return 0.0;
 }

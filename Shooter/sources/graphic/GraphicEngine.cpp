@@ -9,7 +9,6 @@
 #include <graphic/HudViewFinder.h>
 #include <graphic/EventHandler.h>
 #include <graphic/HudWeapon.h>
-#include <graphic/FPSManipulator.h>
 
 #include <game/Weapon.h>
 
@@ -45,12 +44,9 @@ void GraphicEngine::initialize()
 	sch->setKeyEventTakeScreenShot(getSettings()->screenShotKey);
 	_viewer->addEventHandler(sch);
 	
-
-	//DEBUG
-	//_viewer->setCameraManipulator( new osgGA::TrackballManipulator() );
-
-	FPSManipulator * fps = new FPSManipulator(getSettings()->mouseScale);
-	_viewer->setCameraManipulator( fps );
+	//set camera manipulator
+	_fps = new FPSManipulator(getSettings()->mouseScale);
+	_viewer->setCameraManipulator( _fps );
 
 	
 
@@ -92,7 +88,7 @@ void GraphicEngine::initialize()
 	{
 		(*itr)->useCursor(false); 
 		//allow the manipulator to move the cursor
-		fps->setGW((*itr));
+		_fps->setGW((*itr));
 	}
 
 }
@@ -121,6 +117,13 @@ void GraphicEngine::setActiveWeapon( Weapon * w )
 	}
 
 }
+
+
+void GraphicEngine::animateManipulator()
+{
+	_fps->animate();
+}
+
 
 void GraphicEngine::setBulletNum(int num)
 {
