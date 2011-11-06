@@ -102,6 +102,7 @@ void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection inters
 	}
 
 
+	getGraphicEngine()->setCurrentLoaderBulletNum(_weaponManager->getActiveWeapon()->GetNbBallesDansChargeur());
 	
 
 }

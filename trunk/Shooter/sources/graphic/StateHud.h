@@ -2,6 +2,7 @@
 #define _STATE_HUD_H_
 
 #include <osg/Camera>
+#include <osg/Switch>
 #include <osgText/Text>
 
 #include <sstream>
@@ -20,11 +21,15 @@ public:
 	void setchrono(int chrono){ *_chronoI = chrono; }
 	void setTotalBullet(int bullet){ *_bulletI = bullet; }
 
+	void setCurrentBulletCountInLoader( int bullet );
+
+	void setBulletCountInLoader( int bullet );
+
 private:
 
 	void createAmoGeometry();
 
-	Weapon * _weapon; //use a setter that will rebuild/refresh the 
+//	Weapon * _weapon; //use a setter that will rebuild/refresh the 
 
 	osg::ref_ptr<osgText::Text> _totalBullet;
 	osg::ref_ptr<osgText::Text> _chrono;
@@ -84,6 +89,17 @@ private:
 				return result;
 			}
 	}; 
+
+
+	int _numBulletPerLoader;
+	//keep a reference to ba able to create the amo square in the good size
+	osg::BoundingBox _loaderBB;
+
+	osg::ref_ptr<osg::Switch> _loaderSwitch;
+
+	void createLoader();
+
+
 	
 };
 

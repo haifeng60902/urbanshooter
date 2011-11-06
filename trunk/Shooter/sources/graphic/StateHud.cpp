@@ -33,9 +33,19 @@ StateHud::StateHud()
 
 	createAmoGeometry();
 
+
 	//add the draw callback for multi-htread rendering issue
 	_totalBullet->setDrawCallback(new StateHudDrawCallback(_totalBullet, _score, _chrono, _bulletI, _scoreI, _chronoI));
 }
+
+
+void StateHud::setBulletCountInLoader( int bullet )
+{
+	_numBulletPerLoader = bullet;
+	createLoader();
+
+}
+
 
 StateHud::~StateHud()
 {
@@ -215,6 +225,44 @@ void StateHud::createAmoGeometry()
 		geomscore->getOrCreateStateSet()->setAttributeAndModes(ln, osg::StateAttribute::ON);
 	}
 
+
+	//loader
+
+	osg::Geometry* geomloader = new osg::Geometry;
+	{
+		osg::Vec3Array* vertices = new osg::Vec3Array();
+		
+		//horizontal square
+		vertices->push_back(osg::Vec3(maxX-width+margin*3,maxY-margin*15,-0.5));
+		vertices->push_back(osg::Vec3(maxX-margin*3,maxY-margin*15,-0.5));
+		vertices->push_back(osg::Vec3(maxX-margin*3,maxY-height+margin*10,-0.5));
+		vertices->push_back(osg::Vec3(maxX-width+margin*3,maxY-height+margin*10,-0.5));
+
+		geomloader->setVertexArray(vertices);
+
+		osg::Vec3Array* normals = new osg::Vec3Array;
+		normals->push_back(osg::Vec3(0.0f,0.0f,1.0f));
+		geomloader->setNormalArray(normals);
+		geomloader->setNormalBinding(osg::Geometry::BIND_OVERALL);
+
+		osg::Vec4Array* colors = new osg::Vec4Array;
+		colors->push_back(osg::Vec4(linecolor, 1.0));
+		geomloader->setColorArray(colors);
+		geomloader->setColorBinding(osg::Geometry::BIND_OVERALL);
+
+		geomloader->addPrimitiveSet(new osg::DrawArrays(GL_LINE_LOOP,0,vertices->size()));
+		//set width
+		osg::LineWidth * ln = new osg::LineWidth;
+		ln->setWidth(lineWidth);
+		geomloader->getOrCreateStateSet()->setAttributeAndModes(ln, osg::StateAttribute::ON);
+
+
+		//copy vertices in BB
+		_loaderBB.set(vertices->at(3), vertices->at(1));
+	}
+
+
+
 	//disable culling
 	geode->setCullingActive(false);
 	//disable picking
@@ -228,6 +276,7 @@ void StateHud::createAmoGeometry()
 	geode->addDrawable(geomText);
 	geode->addDrawable(geomchrono);
 	geode->addDrawable(geomscore);
+	geode->addDrawable(geomloader);
 	geode->addDrawable(_totalBullet);
 	geode->addDrawable(_chrono);
 	geode->addDrawable(_score);
@@ -235,4 +284,69 @@ void StateHud::createAmoGeometry()
 	//attach to the camera
 	addChild(geode);
 
+}
+
+
+
+void StateHud::createLoader()
+{
+	_loaderSwitch = new osg::Switch;
+
+	osg::Vec3d linecolor(1.0,1.0,1.0);
+
+	//attach to the camera
+	addChild(_loaderSwitch);
+
+	osg::Vec2 size(_loaderBB.xMax() - _loaderBB.xMin(), _loaderBB.yMax() - _loaderBB.yMin());
+	osg::Vec2 oneSize(size.x(), size.y() / _numBulletPerLoader);
+	int margin = 10;
+
+	//up to down
+	for(int i = 0 ; i < _numBulletPerLoader ; ++i)
+	{
+
+		osg::Geode* geode = new osg::Geode;
+		osg::Geometry* geomBullet = new osg::Geometry;
+	
+		osg::Vec3Array* vertices = new osg::Vec3Array();
+		
+		//horizontal square
+		vertices->push_back(osg::Vec3(_loaderBB.xMin()+margin,_loaderBB.yMax()-margin-oneSize.y()*i,-0.5));
+		vertices->push_back(osg::Vec3(_loaderBB.xMax()-margin,_loaderBB.yMax()-margin-oneSize.y()*i,-0.5));
+		vertices->push_back(osg::Vec3(_loaderBB.xMax()-margin,_loaderBB.yMax()+margin-oneSize.y()-oneSize.y()*i,-0.5));
+		vertices->push_back(osg::Vec3(_loaderBB.xMin()+margin,_loaderBB.yMax()+margin-oneSize.y()-oneSize.y()*i,-0.5));
+
+		geomBullet->setVertexArray(vertices);
+
+		osg::Vec3Array* normals = new osg::Vec3Array;
+		normals->push_back(osg::Vec3(0.0f,0.0f,1.0f));
+		geomBullet->setNormalArray(normals);
+		geomBullet->setNormalBinding(osg::Geometry::BIND_OVERALL);
+
+		osg::Vec4Array* colors = new osg::Vec4Array;
+		colors->push_back(osg::Vec4(linecolor, 1.0));
+		geomBullet->setColorArray(colors);
+		geomBullet->setColorBinding(osg::Geometry::BIND_OVERALL);
+
+		geomBullet->addPrimitiveSet(new osg::DrawArrays(GL_QUADS,0,4));
+
+		geode->addDrawable(geomBullet);
+
+		_loaderSwitch->addChild(geode);
+	}
+}
+
+
+void StateHud::setCurrentBulletCountInLoader( int bullet )
+{
+	if(!_loaderSwitch.valid())
+		return;
+
+	for(int i = _numBulletPerLoader-1 ; i >= 0 ; --i)
+	{
+		if(i > _numBulletPerLoader-bullet-1)
+			_loaderSwitch->setValue(i, true);
+		else
+			_loaderSwitch->setValue(i, false);
+	}
 }

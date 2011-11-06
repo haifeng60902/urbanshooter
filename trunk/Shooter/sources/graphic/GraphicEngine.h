@@ -28,6 +28,7 @@ public:
 	void setBulletNum(int num);
 	void setScore(int score);
 	void setRemainingTime(int time);
+	void setCurrentLoaderBulletNum(int num);
 
 private:
 
