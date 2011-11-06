@@ -115,7 +115,10 @@ void GraphicEngine::setActiveWeapon( Weapon * w )
 	//load the file
 	osg::Node * node = osgDB::readNodeFile(w->getFileName());
 	if(node)
+	{
 		_activeWeapon->addChild(node);
+		_stateHud->setBulletCountInLoader( w->GetCapaciteChargeur());
+	}
 
 }
 
@@ -132,4 +135,9 @@ void GraphicEngine::setScore(int num)
 void GraphicEngine::setRemainingTime(int num)
 {
 	_stateHud->setchrono( num );
+}
+
+void GraphicEngine::setCurrentLoaderBulletNum(int num)
+{
+	_stateHud->setCurrentBulletCountInLoader( num );
 }

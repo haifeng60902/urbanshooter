@@ -24,6 +24,8 @@ public:
 	//nombre de balles
 	unsigned int GetNbBalles();
 
+	unsigned int GetCapaciteChargeur(){ return _capacite_chargeur; }
+
 	//décompte une balle
 	void Tire();
 
