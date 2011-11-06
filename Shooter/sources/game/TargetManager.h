@@ -19,6 +19,7 @@ public:
 
 private:
 
+	//ref map for pat's targets that has been animated before
 
 };
 

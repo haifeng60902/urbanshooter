@@ -324,6 +324,46 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="animation"
+				>
+				<File
+					RelativePath="..\..\sources\animation\CallbackList.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\CallbackList.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\CallbackManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\CallbackManager.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\Macros.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\RotationCallback.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\RotationCallback.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\TranslationCallback.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\animation\TranslationCallback.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="config"
