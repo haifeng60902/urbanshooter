@@ -31,6 +31,7 @@ private:
 	Score * _score;
 
 	bool _end;
+	bool _start;
 };
 
 

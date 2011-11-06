@@ -15,6 +15,7 @@ GameEngine::GameEngine()
 	_targetManager = new TargetManager();
 	_score = new Score();
 	_end = false;
+	_start = false;
 }
 
 
@@ -28,13 +29,21 @@ GameEngine::~GameEngine()
 void GameEngine::frame()
 {
 
+	if(_start)
+		_score->go();
+
 	//update the hud
 	getGraphicEngine()->setBulletNum(_weaponManager->getActiveWeapon()->GetNbBalles());
 	getGraphicEngine()->setScore(_score->get());
 	getGraphicEngine()->setRemainingTime(_score->getRemainingtTime());
+	
 
+	//end of the game
 	if(_score->getRemainingtTime() == 0)
+	{
 		_end = true;
+		getGraphicEngine()->displayEnd();
+	}
 }
 
 bool GameEngine::isValid()
@@ -56,6 +65,12 @@ void GameEngine::initialize()
 
 void GameEngine::onLeftClic(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
+	if(!_start)
+	{
+		_start = true;
+		return;
+	}
+
 	if(_end)
 		return;
 

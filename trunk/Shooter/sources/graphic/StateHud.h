@@ -25,7 +25,14 @@ public:
 
 	void setBulletCountInLoader( int bullet );
 
+	void displayEnd();
+
+	void buildManual();
+	void hideManual();
+
 private:
+
+	osg::Geode * _manual;
 
 	void createAmoGeometry();
 

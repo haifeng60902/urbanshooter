@@ -33,6 +33,8 @@ public:
 
 	void animateManipulator();
 
+	void displayEnd();
+
 private:
 
 	osg::ref_ptr<osgViewer::Viewer> _viewer;

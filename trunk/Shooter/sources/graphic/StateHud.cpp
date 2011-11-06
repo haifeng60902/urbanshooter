@@ -33,6 +33,7 @@ StateHud::StateHud()
 
 	createAmoGeometry();
 
+	buildManual();
 
 	//add the draw callback for multi-htread rendering issue
 	_totalBullet->setDrawCallback(new StateHudDrawCallback(_totalBullet, _score, _chrono, _bulletI, _scoreI, _chronoI));
@@ -348,5 +349,73 @@ void StateHud::setCurrentBulletCountInLoader( int bullet )
 			_loaderSwitch->setValue(i, true);
 		else
 			_loaderSwitch->setValue(i, false);
+	}
+}
+
+
+void StateHud::displayEnd()
+{
+
+	int maxX = 1280;
+	int maxY = 1024;
+
+
+	osgText::Text * end = new osgText::Text();
+	end->setPosition(osg::Vec3(maxX/2-150,maxY/2,-0.5)); //4th point
+	end->setAutoRotateToScreen(false);
+	end->setCharacterSizeMode(osgText::TextBase::SCREEN_COORDS);
+	end->setCharacterSize(300);
+	end->setText("Time is up !");
+	end->setColor(osg::Vec4(1.,0.,0., 1.0));
+
+	osg::Geode * geode = new osg::Geode();
+
+	geode->addDrawable(end);
+
+	//disable culling
+	geode->setCullingActive(false);
+	//disable picking
+	geode->setNodeMask(0x1);
+	//disable lightning
+	geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+
+	addChild(geode);
+}
+
+
+void StateHud::buildManual()
+{
+	int maxX = 1280;
+	int maxY = 1024;
+
+
+	osgText::Text * end = new osgText::Text();
+	end->setPosition(osg::Vec3(maxX/2-350,maxY/2.5,-0.5)); //4th point
+	end->setAutoRotateToScreen(false);
+	end->setCharacterSizeMode(osgText::TextBase::SCREEN_COORDS);
+	end->setCharacterSize(50);
+	end->setColor(osg::Vec4(1.,0.,0., 1.0));
+
+	end->setText("Manuel : \nTirez sur les cibles pour gagner des points dans le temps imparti.\nLa partie se termine quand le chrono arrive a 0\nChaque tir sur une cible vous fait gagner 1 seconde et 25 points\nChaque tir rate vous fait perdre 5 points\nVous avez 100 balles, le score maximum est donc de 2500\n\nEchap pour quitter, 'p' pour un screenshot\n(Notez qu'il est possible de configurer le jeu via le fichier config/config.txt)\n\nTirez pour commencer.");
+
+	_manual = new osg::Geode;
+	_manual->addDrawable(end);
+
+	//disable culling
+	_manual->setCullingActive(false);
+	//disable picking
+	_manual->setNodeMask(0x1);
+	//disable lightning
+	_manual->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+
+	addChild(_manual);
+}
+
+void StateHud::hideManual()
+{
+	if(_manual)
+	{
+		removeChild(_manual);
+		_manual= NULL;
 	}
 }
