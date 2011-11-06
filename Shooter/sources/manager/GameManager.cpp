@@ -42,9 +42,9 @@ GameManager::~GameManager()
 
 void GameManager::initialize()
 {
-	_gameEngine->initialize();
 	_soundEngine->initialize();
 	_graphicEngine->initialize();
+	_gameEngine->initialize();//important to be after the graphic
 }
 
 void GameManager::run()

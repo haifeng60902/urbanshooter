@@ -9,7 +9,7 @@ TargetManager::~TargetManager()
 }
 
 
-void TargetManager::Intersect(osgUtil::LineSegmentIntersector::Intersection intersection)
+TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersector::Intersection intersection)
 {
 	std::string pattern = "Target_";
 
@@ -31,12 +31,12 @@ void TargetManager::Intersect(osgUtil::LineSegmentIntersector::Intersection inte
 
 	//no valid intersection
 	if(i<0)
-		return;
+		return TARGET_MISSED;
 	
 	if(!target)
-		return;
+		return TARGET_MISSED;
 	else
-		target->setNodeMask(0x0);
+		return TARGET_REACHED;
 
 	//first check if the intersected node is a target
 

@@ -6,6 +6,7 @@
 
 class WeaponManager;
 class TargetManager;
+class Score;
 
 //manage the game
 class GameEngine : public Engine
@@ -26,6 +27,8 @@ private:
 	WeaponManager* _weaponManager;
 	
 	TargetManager * _targetManager;
+
+	Score * _score;
 };
 
 

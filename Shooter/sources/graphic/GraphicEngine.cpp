@@ -9,7 +9,6 @@
 #include <graphic/HudViewFinder.h>
 #include <graphic/EventHandler.h>
 #include <graphic/HudWeapon.h>
-#include <graphic/StateHud.h>
 #include <graphic/FPSManipulator.h>
 
 #include <game/Weapon.h>
@@ -78,8 +77,8 @@ void GraphicEngine::initialize()
 	_root->addChild(_hudWeapon);
 
 	//attach the hud state
-	_root->addChild(new StateHud());
-
+	_stateHud = new StateHud();
+	_root->addChild(_stateHud);
 
 
 
@@ -115,4 +114,19 @@ void GraphicEngine::setActiveWeapon( Weapon * w )
 	if(node)
 		_activeWeapon->addChild(node);
 
+}
+
+void GraphicEngine::setBulletNum(int num)
+{
+	_stateHud->setTotalBullet( num );
+}
+
+void GraphicEngine::setScore(int num)
+{
+	_stateHud->setScore( num );
+}
+
+void GraphicEngine::setRemainingTime(int num)
+{
+	_stateHud->setchrono( num );
 }

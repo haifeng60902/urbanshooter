@@ -5,6 +5,7 @@
 
 #include <osgViewer/Viewer>
 #include <osg/Group>
+#include <graphic/StateHud.h>
 
 class Weapon;
 class HudWeapon;
@@ -24,6 +25,10 @@ public:
 
 	void setActiveWeapon( Weapon * w ); 
 
+	void setBulletNum(int num);
+	void setScore(int score);
+	void setRemainingTime(int time);
+
 private:
 
 	osg::ref_ptr<osgViewer::Viewer> _viewer;
@@ -32,6 +37,7 @@ private:
 	osg::ref_ptr<osg::PositionAttitudeTransform> _activeWeapon;
 
 	osg::ref_ptr<HudWeapon> _hudWeapon;
+	osg::ref_ptr<StateHud>	_stateHud;
 
 };
 

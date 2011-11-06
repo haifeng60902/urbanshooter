@@ -12,7 +12,10 @@ public:
 	TargetManager();
 	~TargetManager();
 
-	void Intersect(osgUtil::LineSegmentIntersector::Intersection intersection);
+	enum ShootResult{ TARGET_REACHED, TARGET_MISSED, TARGET_WRONG };
+
+	ShootResult Intersect(osgUtil::LineSegmentIntersector::Intersection intersection);
+
 
 private:
 
