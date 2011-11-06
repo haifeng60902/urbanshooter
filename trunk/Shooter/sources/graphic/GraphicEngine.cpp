@@ -9,6 +9,7 @@
 #include <graphic/HudViewFinder.h>
 #include <graphic/EventHandler.h>
 #include <graphic/HudWeapon.h>
+#include <graphic/StateHud.h>
 #include <graphic/FPSManipulator.h>
 
 #include <game/Weapon.h>
@@ -65,13 +66,21 @@ void GraphicEngine::initialize()
 	//load the scene
 	_root->addChild(osgDB::readNodeFile("./datas/level.osg"));
 
-	//attach the view finder
+
+
+
+	//attach the hud view finder
 	_root->addChild(new HudViewFinder(getSettings()->viewFinderRed,getSettings()->viewFinderGreen,getSettings()->viewFinderBlue,getSettings()->viewFinderWidth));
 
 	//attach the hud weapon
 	_hudWeapon = new HudWeapon();
 	_hudWeapon->setWeaponRoot(_activeWeapon);
 	_root->addChild(_hudWeapon);
+
+	//attach the hud state
+	_root->addChild(new StateHud());
+
+
 
 
 	//disable cursor

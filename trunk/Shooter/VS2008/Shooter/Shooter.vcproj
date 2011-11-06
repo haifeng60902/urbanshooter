@@ -299,6 +299,14 @@
 					RelativePath="..\..\sources\graphic\HudWeapon.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\sources\graphic\StateHud.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\sources\graphic\StateHud.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="sound"
