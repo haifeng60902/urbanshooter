@@ -45,9 +45,6 @@ bool WeaponManager::Shoot()
 	{
 		_activeWeapon->Tire();
 
-		//TODO:play sound
-		//TODO:play graphical shoot and animation
-
 		std::cout << "Shoot" << std::endl;
 		
 		return true;
@@ -62,8 +59,6 @@ bool WeaponManager::Reload()
 	{
 		_activeWeapon->Reload();
 
-		//TODO:play sound
-		//TODO:play graphical reload animation
 		std::cout << "Reload" << std::endl;
 		
 		return true;

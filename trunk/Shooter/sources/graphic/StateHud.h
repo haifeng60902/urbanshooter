@@ -37,14 +37,9 @@ private:
 
 
 	//private update text callback to avoid crashes
-
-
-	
-
 	class StateHudDrawCallback : public virtual osg::Drawable::DrawCallback
 	{
 	private :
-	        // See HUD3D declaration to have the index-Text matching
 	      
 		osg::ref_ptr<osgText::Text> _totalBullet;
 		osg::ref_ptr<osgText::Text> _chrono;
