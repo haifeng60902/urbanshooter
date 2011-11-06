@@ -7,7 +7,8 @@
 class Score
 {
 public:
-	Score() : _total( 0 ) , _total_time(90)
+	//start with 10s
+	Score() : _total( 0 ) , _total_time(10)
 	{
 		_startTick = osg::Timer::instance()->tick();
 	}
@@ -23,8 +24,8 @@ public:
 	//loose 1
 	void addVoidShoot(){ _total -= 1; }
 
-	//add 25
-	void addTargetShoot(){ _total += 25; }
+	//add 25 and add 1second
+	void addTargetShoot(){ _total += 25; _total_time += 1; }
 
 	int getRemainingtTime()
 	{

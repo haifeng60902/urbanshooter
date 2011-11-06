@@ -89,12 +89,6 @@ TargetManager::ShootResult TargetManager::Intersect(osgUtil::LineSegmentIntersec
 	CallbackManager::addNodeCallback(target, new ReliveCallback());
 
 
-
-	//reference each target when hit on a simple map (no multiple intance)
-	//when on the floor, random a time and animate in the other way (rapid rotation)
-	//manage hit when animate in the other way
-
-
 	return TARGET_REACHED;
 
 }

@@ -29,6 +29,8 @@ private:
 	TargetManager * _targetManager;
 
 	Score * _score;
+
+	bool _end;
 };
 
 
